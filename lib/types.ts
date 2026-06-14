@@ -34,5 +34,5 @@ export interface PortfolioCardProps {
 }
 
 export interface PortfolioCardGridProps {
-  properties?: PortfolioProperty[];
+  properties: PortfolioProperty[];
 }
