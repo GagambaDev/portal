@@ -18,7 +18,9 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
     <div className="animate-fade-in">
       <Card className="w-full hover:cursor-pointer hover:-translate-y-4 hover:shadow-[0_0_5px_rgba(56,189,248,0.35)]">
         <CardHeader>
-          <CardTitle>{property.title}</CardTitle>
+          <CardTitle className="font-building text-[17px] font-bold text-ink">
+            {property.title}
+          </CardTitle>
           <CardDescription>{property.description}</CardDescription>
         </CardHeader>
         <CardContent>
