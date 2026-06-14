@@ -12,24 +12,39 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import type { PortfolioCardProps } from "@/lib/types"
+import PortfolioStanding from "./PortfolioStanding"
+
+const flightDateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "2-digit",
+  year: "numeric",
+  timeZone: "UTC",
+})
 
 export default function PortfolioCard({ property }: PortfolioCardProps) {
+  const { name, building, facade, lastFlightDate } = property
+  const formattedLastFlightDate = flightDateFormatter.format(
+    new Date(lastFlightDate)
+  )
+
   return (
     <div className="animate-fade-in">
       <Card className="w-full hover:cursor-pointer hover:-translate-y-4 hover:shadow-[0_0_5px_rgba(56,189,248,0.35)]">
         <CardHeader>
           <CardTitle className="font-building text-[17px] font-bold text-ink">
-            {property.title}
+            <h1> {name} </h1>
           </CardTitle>
-          <CardDescription>{property.description}</CardDescription>
+          <CardDescription>
+            <h2>{building} · {facade}</h2>
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-muted-foreground">
-            {property.date}
+            Last flight - {formattedLastFlightDate}
           </p>
         </CardContent>
         <CardFooter>
-          <p>{property.footer}</p>
+          <PortfolioStanding property={property} />
         </CardFooter>
       </Card>
     </div>
