@@ -128,3 +128,20 @@
     @apply font-sans;
   }
 }
+
+@theme {
+  --animate-fade-in: fade-in 0.4s ease-out;
+
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0px); }
+  }
+}
+
+.grid-container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+
+  gap: 20px;
+}
