@@ -6,11 +6,11 @@ async function getFlightsThisMonth(): Promise<number> {
 }
 
 async function getPanelsScanned(): Promise<number> {
-  return 480;
+  return 728;
 }
 
 async function getOpenCriticals(): Promise<number> {
-  return 12;
+  return 36;
 }
 
 export async function GET() {

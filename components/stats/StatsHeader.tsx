@@ -11,7 +11,6 @@ async function fetchStats() {
 
 export default async function StatsHeader() {
   const { flightsThisMonth, panelsScanned, openCriticals } = await fetchStats();
-
   const stats = [
     { label: 'Flights this month', value: flightsThisMonth},
     { label: 'Panels scanned', value: panelsScanned },
