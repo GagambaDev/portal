@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import type { PortfolioCardProps } from "@/lib/types"
-import PortfolioStanding from "./PortfolioStanding"
+import PortfolioStats from "./PortfolioStats"
 import Link from "next/link";
 
 const flightDateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -23,7 +23,13 @@ const flightDateFormatter = new Intl.DateTimeFormat("en-US", {
 })
 
 export default function PortfolioCard({ property }: PortfolioCardProps) {
-  const { id, name, building, facade, lastFlightDate } = property
+  const {
+    id,
+    name,
+    building,
+    facade,
+    lastFlightDate,
+  } = property
   const formattedLastFlightDate = flightDateFormatter.format(
     new Date(lastFlightDate)
   )
@@ -45,8 +51,8 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
               Last flight - {formattedLastFlightDate}
             </p>
           </CardContent>
-          <CardFooter>
-            <PortfolioStanding property={property} />
+          <CardFooter className="grid grid-cols-2 border-border bg-transparent px-0 py-0">
+            <PortfolioStats property={property} />
           </CardFooter>
         </Card>
       </Link>

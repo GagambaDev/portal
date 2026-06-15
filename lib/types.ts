@@ -9,8 +9,8 @@ export const PORTFOLIO_PROPERTY_STATUSES = [
 ] as const;
 
 export const PORTFOLIO_STATUS_THRESHOLDS = {
-  actionRequiredGoodPanelRatio: 0.75,
-  needsAttentionGoodPanelRatio: 0.85,
+  actionRequiredGoodPanelRatio: 0.75, // If less than 75% of panels clean set status to ACTION_REQUIRED
+  needsAttentionGoodPanelRatio: 0.85, // If less than 85% of panels clean set status to NEEDS_ATTENTION
 } as const;
 
 export type PortfolioPropertyStatus =
