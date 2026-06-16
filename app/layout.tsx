@@ -1,9 +1,10 @@
+//added fonts to layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Syne, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +14,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const syne = Syne({
+  weight: ['800'],
+  variable: '--font-header',
+  subsets: ['latin'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  weight: ['500', '700'],
+  variable: '--font-techy',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, inter.variable, syne.variable, spaceGrotesk.variable, "font-sans")}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
