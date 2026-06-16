@@ -1,9 +1,11 @@
 import StatItem from "@/components/stats/StatItem";
 
 async function fetchStats() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/portfolio/stats`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/portfolio/stats`, {
+    cache: 'no-store'
+  });
   if (!res.ok) {
-    throw new Error(`Faild to fetch stats: ${res.status}`);
+    throw new Error(`Failed to fetch stats: ${res.status}`);
   }
 
   return res.json();
