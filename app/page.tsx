@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PortfolioHeader from "@/components/stats/PortfolioHeader";
+import PortfolioHeader from "@/components/portfolio/PortfolioHeader";
 
 export default function Home() {
   return (
