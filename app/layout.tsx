@@ -1,4 +1,3 @@
-//added fonts to layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Syne, Space_Grotesk } from "next/font/google";
 import "./globals.css";
