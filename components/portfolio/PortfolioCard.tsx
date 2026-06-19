@@ -51,7 +51,7 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
               Last flight - {formattedLastFlightDate}
             </p>
           </CardContent>
-          <CardFooter className="grid grid-cols-2 border-border bg-transparent px-0 py-0">
+          <CardFooter className="grid grid-cols-3 border-border bg-transparent px-0 py-0">
             <PortfolioStats property={property} />
           </CardFooter>
         </Card>

@@ -9,21 +9,27 @@ interface PortfolioStatsProps {
 }
 
 export default function PortfolioStats({ property }: PortfolioStatsProps) {
-  const { panelCount, dirtyPanelCount } = property
+  const { panelCount, dirtyPanelCount, criticalPanelCount } = property
 
   return (
     <>
       <div className="px-4 py-3">
         <p className="text-[18px] leading-none font-bold text-ink">
-          {panelCount}
+          {panelCount.toLocaleString()}
         </p>
         <p className="mt-1 text-xs text-muted-foreground">Panels</p>
       </div>
       <div className="px-4 py-3">
         <p className="text-[18px] leading-none font-bold text-ink">
-          {dirtyPanelCount}
+          {dirtyPanelCount.toLocaleString()}
         </p>
-        <p className="mt-1 text-xs text-muted-foreground">Need Clean</p>
+        <p className="mt-1 text-xs text-muted-foreground">Needs Cleaning</p>
+      </div>
+      <div className="px-4 py-3">
+        <p className={`text-[18px] leading-none font-bold ${criticalPanelCount > 0 ? "text-destructive" : "text-ink"}`}>
+          {criticalPanelCount.toLocaleString()}
+        </p>
+        <p className="mt-1 text-xs text-muted-foreground">Critical</p>
       </div>
     </>
   )
