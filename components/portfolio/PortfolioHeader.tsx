@@ -22,7 +22,8 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
         <p style={{ fontFamily: 'var(--font-techy)' }} className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
           Building Health / Active Properties
         </p>
-        <h1 style={{ fontFamily: 'var(--font-header)', letterSpacing: '-0.5px' }} className="text-[30px] font-extrabold text-foreground mt-1">
+        {/* Issue Requirements Met for "Property Portfolio" text. */}
+        <h1 style={{ fontFamily: 'var(--font-header)', letterSpacing: '-0.5px' }} className="text-[30px] font-extrabold text-ink mt-1">
           Property Portfolio
         </h1>
         <p className="text-[14px] text-muted-foreground mt-1">
