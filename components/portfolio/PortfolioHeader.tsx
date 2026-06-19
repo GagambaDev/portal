@@ -19,10 +19,11 @@ const statItems = (stats: HeaderStats) => [
 export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
     return (
       <header className="mb-10">
+        {/* B1 Acceptance Requirements Met for Eyebrow. */}
         <p style={{ fontFamily: 'var(--font-techy)' }} className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
           Building Health / Active Properties
         </p>
-        {/* B1 Acceptance Requirements Met for "Property Portfolio" text. */}
+        {/* B1 Acceptance Requirements Met for H1 text. */}
         <h1 style={{ fontFamily: 'var(--font-header)', letterSpacing: '-0.5px' }} className="text-[30px] font-extrabold text-ink mt-1">
           Property Portfolio
         </h1>
