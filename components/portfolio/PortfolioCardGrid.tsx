@@ -11,7 +11,7 @@ export default function PortfolioCardGrid({
 }: PortfolioCardGridProps) {
   return (
     <div className="grid-container">
-      {properties.map((property) => (
+      {(properties || []).map((property) => (
         <PortfolioCard key={property.id} property={property} />
       ))}
     </div>
