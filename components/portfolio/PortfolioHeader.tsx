@@ -47,7 +47,7 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
 
       {/* Aggregate Statistics */}
       {/* 
-        B1 Acceptance Criteria Not Met for Subheading Text. 
+        B1 Acceptance Criteria Not Met for Aggregate Statistics. 
         
         The criteria specified text color is --crit-tint, but this color is not defined in the global css file.
         
