@@ -1,15 +1,15 @@
-/*This file renders the header of the portfolio
+/* This file renders the header of the portfolio */
 
-*/
-
-
+// Typescript object (blueprint) to hold statistics used in this page's subheader.
 type HeaderStats = {
     propertyCount: number;
     flightsThisMonth: number;
     panelsScanned: number;
     openCriticals: number;
 };
-//defined outside the component so its not recreated on every rerender
+
+// Defined outside the component so it's not recreated on every rerender.
+// Converts data from an instance of HeaderStats object into an array.
 const statItems = (stats: HeaderStats) => [
     { label: 'Flights this month', value: stats.flightsThisMonth, crit: false },
     { label: 'Panels scanned', value: stats.panelsScanned, crit: false },
@@ -27,9 +27,10 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
         <h1 style={{ fontFamily: 'var(--font-header)', letterSpacing: '-0.5px' }} className="text-[30px] font-extrabold text-ink mt-1">
           Property Portfolio
         </h1>
-        {/* B1 Acceptance Criteria Not Met for Subheading */}
         {/* 
-          Criteria specified --muted for color text. The global css file has --muted and --muted-foreground defined. 
+          B1 Acceptance Criteria Not Met for Subheading Text.
+          
+          The Criteria specified --muted for color text. The global css file has --muted and --muted-foreground defined. 
           With the current value for --background in that file, --muted-foreground provides better contrast and readability.
         
           Once, the value of --background is updated and finalized to a different value other than white, we can change the text
@@ -38,7 +39,18 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
         <p className="text-[14px] text-muted-foreground mt-1">
           {stats.propertyCount} properties under autonomous service. Open any building to review its latest post-flight report.
         </p>
+        {/* 
+          B1 Acceptance Criteria Not Met for Subheading Text. 
+          
+          The criteria specified text color is --crit-tint, but this color is not defined in the global css file.
 
+          The text size on line 58 is 11px, but the criteria specified 26px. This said, changing it to 26px isn't visually appealing. 
+          Clarify font size concern and finalized size to use with Lead Software Engineers.
+        */}
+        {/* 
+          Converts an array made from an HeaderStat object into an array of HTML elements. 
+          These elements are what React can actually use to render the statistics on our page. 
+        */}
         <div className="flex flex-wrap gap-8 mt-4">
           {statItems(stats).map(({ label, value, crit }) => (
             <div key={label}>
