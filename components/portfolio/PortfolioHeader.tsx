@@ -24,11 +24,13 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
       <p style={{ fontFamily: 'var(--font-techy)' }} className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
         Building Health / Active Properties
       </p>
+
       {/* Head 1 */}
       {/* B1 Acceptance Criteria Met for H1 text. */}
       <h1 style={{ fontFamily: 'var(--font-header)', letterSpacing: '-0.5px' }} className="text-[30px] font-extrabold text-ink mt-1">
         Property Portfolio
       </h1>
+
       {/* Subheading */}
       {/* 
         B1 Acceptance Criteria Not Met for Subheading Text.
@@ -42,6 +44,7 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
       <p className="text-[14px] text-muted-foreground mt-1">
         {stats.propertyCount} properties under autonomous service. Open any building to review its latest post-flight report.
       </p>
+
       {/* Aggregate Statistics */}
       {/* 
         B1 Acceptance Criteria Not Met for Subheading Text. 
