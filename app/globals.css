@@ -121,10 +121,40 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .dashboard-background {
+    background:
+      radial-gradient(1100px 760px at 78% -12%,
+        rgba(91, 63, 212, 0.35) 0%,
+        transparent 58%),
+      radial-gradient(900px 700px at 8% 6%,
+        rgba(0, 170, 255, 0.10) 0%,
+        transparent 55%),
+      linear-gradient(158deg,
+        #09061A 0%,
+        #1A0F47 100%);
+
+    background-attachment: fixed;
+  }
+
+  .dashboard-grid-overlay {
+    background-image:
+      linear-gradient(rgba(213, 210, 247, 0.035) 1px,
+        transparent 1px),
+      linear-gradient(90deg,
+        rgba(213, 210, 247, 0.035) 1px,
+        transparent 1px);
+
+    background-size: 36px 36px;
   }
 }
