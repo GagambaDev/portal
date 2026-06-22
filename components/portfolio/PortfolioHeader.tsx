@@ -36,9 +36,7 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
       {/* Aggregate Statistics */}
       {/* 
         B1 Acceptance Criteria Not Met for Subheading Text. 
-        
-        The criteria specified text color is --crit-tint, but this color is not defined in the global css file.
-        
+                
         The text size on line 58 is 11px, but the criteria specified 26px. This said, changing it to 26px isn't visually appealing. 
         Clarify font size concern and finalized size to use with Lead Software Engineers.
       */}
