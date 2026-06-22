@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { DM_Sans, Syne, Space_Grotesk } from "next/font/google";
-import "@/globals.css";
+import "./globals.css";
+import { ToastProvider } from "@/components/ui";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   axes: ["opsz"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-dm-sans",
 });
 
@@ -37,7 +37,9 @@ export default function RootLayout({
       className={`${dmSans.variable} ${syne.variable} ${spaceGrotesk.variable}`}
     >
       <body>
-        {children}
+        <ToastProvider>
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );
