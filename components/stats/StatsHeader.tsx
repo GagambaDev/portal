@@ -1,5 +1,10 @@
 import StatItem from "@/components/stats/StatItem";
 
+/**
+ * Fetches flightsThisMonth, panelScanned, and openCriticals from the API.
+ * Values are currently dummy values -- to be replaced with real Supabase queries.
+ * @returns Promise<{ flightsThisMonth: number, panelsScanned: number, openCriticals: number }>
+ */
 async function fetchStats() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/portfolio/stats`, {
     cache: 'no-store'
