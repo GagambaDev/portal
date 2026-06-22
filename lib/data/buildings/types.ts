@@ -1,3 +1,25 @@
+export type PanelStatus = "clean" | "needs-clean" | "critical" | "paint-issues";
+
+export type Panel = {
+    id: string;
+    floor: number;
+    panelNumber: number;
+    status: PanelStatus;
+    flagged: boolean;
+    thermalDelta: number;
+    scanConfidence: number;
+    lastCleanedDays: number;
+    glazing: string;
+    aiAssessment: string;
+};
+
+export type Facade = {
+    label: string;
+    floors: number;
+    panelsPerFloor: number;
+    panels: Panel[];
+};
+
 export type Recommendation = {
     type: "priority" | "info";
     label: string;
@@ -31,4 +53,5 @@ export type Building = {
     recommendations: Recommendation[];
     waterEfficiency: WaterEfficiency;
     flightEvents: FlightEvent[];
+    facades: Facade[];
 };

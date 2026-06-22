@@ -6,6 +6,7 @@ import RecommendationsCard from "@/components/job-dashboard/right-column/Recomme
 import WaterEfficiencyCard from "@/components/job-dashboard/right-column/WaterEfficiencyCard";
 import FlightEventLogCard from "@/components/job-dashboard/right-column/FlightEventLogCard";
 import { getBuilding } from "@/lib/data/buildings/utils";
+import FacadeMap from "@/components/job-dashboard/center-column/FacadeMap";
 
 type PageProps = {
     params: Promise<{ buildingId: string }>;
@@ -32,7 +33,9 @@ export default async function Page({ params }: PageProps) {
                 <div className="dashboard-grid p-6 mx-auto" style={{ maxWidth: "1440px" }}>
                     <DashboardColumn />
 
-                    <DashboardColumn />
+                    <DashboardColumn>
+                        <FacadeMap facades={building.facades} />
+                    </DashboardColumn>
 
                     <DashboardColumn className="right-column">
                         <RecommendationsCard recommendations={building.recommendations} />
