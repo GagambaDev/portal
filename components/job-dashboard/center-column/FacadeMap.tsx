@@ -1,9 +1,7 @@
 "use client";
 
-// PLACEHOLDER — the visual facade grid below (panel cells, floor rows, legend) is a
-// scaffold standing in for the real FacadeMap being built by another dev. Replace the
-// grid markup with that component when it lands; the Dialog + PanelDetailModal wiring
-// below it should be kept as-is.
+// PLACEHOLDER — the facade grid below is a stand in.
+// Replace with real component when finished
 
 import { useState } from "react";
 import type { Facade, Panel, PanelStatus } from "@/lib/data/buildings/types";
