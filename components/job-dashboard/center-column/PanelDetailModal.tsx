@@ -1,6 +1,6 @@
 import { XIcon } from "lucide-react";
 import type { Panel, PanelStatus } from "@/lib/data/buildings/types";
-import { DialogClose, DialogTitle } from "@/components/ui/dialog";
+import { DialogClose, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 type Props = {
@@ -68,6 +68,9 @@ export default function PanelDetailModal({
                     <DialogTitle className="mt-1 font-body text-[18px] font-semibold leading-tight text-[#F0EEFC]">
                         Floor {panel.floor} · Panel {panel.panelNumber}
                     </DialogTitle>
+                    <DialogDescription className="sr-only">
+                        Panel status details and inspection options for {facadeLabel}, floor {panel.floor}, panel {panel.panelNumber}.
+                    </DialogDescription>
                 </div>
                 <DialogClose asChild>
                     <Button
