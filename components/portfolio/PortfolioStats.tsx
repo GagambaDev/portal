@@ -3,13 +3,14 @@
  */
 
 import type { PortfolioProperty } from "@/lib/types"
+import { getFacadePanelStats } from "@/lib/facade"
 
 interface PortfolioStatsProps {
   property: PortfolioProperty
 }
 
 export default function PortfolioStats({ property }: PortfolioStatsProps) {
-  const { panelCount, dirtyPanelCount, criticalPanelCount } = property
+  const { panelCount, dirtyPanelCount, criticalPanelCount } = getFacadePanelStats(property.facadeGrid)
 
   return (
     <>
