@@ -35,12 +35,6 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
 
       {/* Aggregate Statistics */}
       {/* 
-        B1 Acceptance Criteria Not Met for Subheading Text. 
-                
-        The text size on line 58 is 11px, but the criteria specified 26px. This said, changing it to 26px isn't visually appealing. 
-        Clarify font size concern and finalized size to use with Lead Software Engineers.
-      */}
-      {/* 
         Converts an array made from an HeaderStat object into an array of HTML elements. 
         These elements are what React can actually use to render the statistics on our page. 
       */}
