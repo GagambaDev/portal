@@ -39,13 +39,17 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
       <Link href={`/portfolio/${id}`} className="block">
         <Card className="w-full hover:cursor-pointer hover:-translate-y-1 hover:shadow-[0_0_5px_rgba(56,189,248,0.35)]">
           <CardHeader>
+            {/* Building Name */}
             <CardTitle className="font-building text-[17px] font-bold text-ink">
               <h1> {name} </h1>
             </CardTitle>
+
+            {/* Location */}
             <CardDescription>
               <h2>{building} · {facade}</h2>
             </CardDescription>
           </CardHeader>
+
           <CardContent>
             <p className="text-sm text-muted-foreground">
               Last flight - {formattedLastFlightDate}
