@@ -18,15 +18,41 @@ export type PortfolioPropertyStatus =
   | typeof NEEDS_ATTENTION
   | typeof ACTION_REQUIRED;
 
+export const PANEL_STATUS_GOOD = "good";
+export const PANEL_STATUS_DIRTY = "dirty";
+export const PANEL_STATUS_CRITICAL = "critical";
+
+export const PANEL_COLOR_GOOD = "bg-emerald-400";
+export const PANEL_COLOR_DIRTY = "bg-amber-300";
+export const PANEL_COLOR_CRITICAL = "bg-red-500";
+
+export type FacadePanelStatus =
+  | typeof PANEL_STATUS_GOOD
+  | typeof PANEL_STATUS_DIRTY
+  | typeof PANEL_STATUS_CRITICAL;
+
+export interface PortfolioPanelStats {
+  panelCount: number;
+  dirtyPanelCount: number;
+  criticalPanelCount: number;
+}
+
+export type FacadePanelCoordinate = [number, number];
+
+export interface FacadeGrid {
+  rows: number;
+  columns: number;
+  dirtyPanels: FacadePanelCoordinate[];
+  criticalPanels: FacadePanelCoordinate[];
+}
+
 export interface PortfolioProperty {
   id: string;
   name: string;
   building: string;
   facade: string;
   lastFlightDate: string;
-  panelCount: number;
-  criticalPanelCount: number;
-  dirtyPanelCount: number;
+  facadeGrid: FacadeGrid;
 }
 
 export interface PortfolioCardProps {

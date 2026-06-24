@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import type { PortfolioCardProps } from "@/lib/types"
+import PortfolioMiniFacade from "./PortfolioMiniFacade"
 import PortfolioStats from "./PortfolioStats"
 import Link from "next/link";
 
@@ -37,9 +38,9 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
   return (
     <div className="w-full max-w-sm animate-fade-in">
       <Link href={`/portfolio/${id}`} className="block">
-        <Card className="w-full hover:cursor-pointer hover:-translate-y-1 hover:shadow-[0_0_5px_rgba(56,189,248,0.35)]">
-          <CardHeader>
-            {/* Building Name */}
+        <Card className="w-full gap-0 py-0 hover:cursor-pointer hover:-translate-y-1 hover:shadow-[0_0_5px_rgba(56,189,248,0.35)]">
+          <PortfolioMiniFacade facadeGrid={property.facadeGrid} />
+          <CardHeader className="pt-4">
             <CardTitle className="font-building text-[17px] font-bold text-ink">
               <h1> {name} </h1>
             </CardTitle>
@@ -49,8 +50,7 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
               <h2>{building} · {facade}</h2>
             </CardDescription>
           </CardHeader>
-
-          <CardContent>
+          <CardContent className="py-4">
             <p className="text-sm text-muted-foreground">
               Last flight - {formattedLastFlightDate}
             </p>
