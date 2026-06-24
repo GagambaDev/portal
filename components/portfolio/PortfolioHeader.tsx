@@ -18,6 +18,7 @@ const statItems = (stats: HeaderStats) => [
 
 export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
   return (
+    // All header elements will vertically stack in the order they appear.
     <header className="mb-10 flex flex-col min-[821px]:flex-row">
       <div>
       {/* Eyebrow for Head 1 */}
