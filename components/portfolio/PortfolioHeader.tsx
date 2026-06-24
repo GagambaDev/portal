@@ -18,7 +18,8 @@ const statItems = (stats: HeaderStats) => [
 
 export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
   return (
-    <header className="mb-10">
+    <header className="mb-10 flex flex-col min-[821px]:flex-row">
+      <div>
       {/* Eyebrow for Head 1 */}
       {/* B1 Acceptance Criteria Met for Eyebrow. */}
       <p style={{ fontFamily: 'var(--font-techy)' }} className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
@@ -67,6 +68,7 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
             <p style={{ fontFamily: 'var(--font-techy)' }} className={`text-[26px] font-bold ${crit ? 'text-destructive' : 'text-foreground'}`}>{value.toLocaleString()}</p>
           </div>
         ))}
+      </div>
       </div>
     </header>
   );
