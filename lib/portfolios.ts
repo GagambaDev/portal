@@ -93,6 +93,20 @@ export const portfolios: PortfolioProperty[] = [
       ],
     }),
   },
+  {
+    building_id: "4",
+    company_id: "Caesars Entertainment",
+    property_id: "Caesars Palace",
+    name: "Caesars",
+    building: "North Tower",
+    facade: "North Facade",
+    lastFlightDate: "2026-04-12",
+    facadeGrid: createFacadeGrid({
+      rows: 10,
+      columns: 16,
+      dirtyPanels: [[1, 8], [3, 4], [5, 12]],
+    }),
+  },
 ];
 
 export async function getPortfolios() {
