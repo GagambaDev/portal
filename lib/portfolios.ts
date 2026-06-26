@@ -7,7 +7,7 @@ import { createFacadeGrid } from "@/lib/facade";
 // something. 
 export const portfolios: PortfolioProperty[] = [
   {
-    building_id: "1",
+    building_id: 1,
     company_id: "MGM Resorts International",
     property_id: "MGM Grand",
     name: "MGM Grand Las Vegas",
@@ -21,7 +21,7 @@ export const portfolios: PortfolioProperty[] = [
     }),
   },
   {
-    building_id: "2",
+    building_id: 2,
     company_id: "MGM Resorts International",
     property_id: "The Cosmopolitan",
     name: "The Cosmopolitan",
@@ -51,7 +51,7 @@ export const portfolios: PortfolioProperty[] = [
     }),
   },
   {
-    building_id: "3",
+    building_id: 3,
     company_id: "MGM Resorts International",
     property_id: "ARIA",
     name: "ARIA Resort & Casino",
@@ -94,7 +94,7 @@ export const portfolios: PortfolioProperty[] = [
     }),
   },
   {
-    building_id: "4",
+    building_id: 4,
     company_id: "Caesars Entertainment",
     property_id: "Caesars Palace",
     name: "Caesars",
@@ -113,6 +113,6 @@ export async function getPortfolios() {
   return portfolios;
 }
 
-export async function getPortfolioById(id: string) {
+export async function getPortfolioById(id: number) {
   return portfolios.find((portfolio) => portfolio.building_id === id) ?? null;
 }
