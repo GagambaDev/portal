@@ -47,7 +47,7 @@ export interface FacadeGrid {
 }
 
 export interface PortfolioProperty { 
-  building_id: string;
+  building_id: number;
   company_id: string;
   property_id: string;
   name: string;
