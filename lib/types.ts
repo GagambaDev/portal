@@ -46,8 +46,10 @@ export interface FacadeGrid {
   criticalPanels: FacadePanelCoordinate[];
 }
 
-export interface PortfolioProperty {
-  id: string;
+export interface PortfolioProperty { 
+  building_id: string;
+  company_id: string;
+  property_id: string;
   name: string;
   building: string;
   facade: string;
