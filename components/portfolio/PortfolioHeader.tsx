@@ -55,3 +55,10 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
     </header>
   );
 }
+export function LoadingPortfolioHeader() {
+  return(
+    <header className="mb-10 flex flex-col min-[821px]:flex-row animate-pulse h-24"
+      style={{backgroundColor: 'var(--violet-soft, green)'}}> 
+    </header>
+  );
+}
