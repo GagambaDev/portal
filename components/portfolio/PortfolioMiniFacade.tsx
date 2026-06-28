@@ -53,7 +53,7 @@ export default function PortfolioMiniFacade({facadeGrid}: PortfolioMiniFacadePro
               return (
                 <span
                   key={`${row} ${column}`}
-                  className={`h-3 rounded-[2px] opacity-[0.92] ${getPanelClass(status)}`}
+                  className={`h-3 rounded-xs opacity-[0.92] ${getPanelClass(status)}`}
                 />
               );
             })}
