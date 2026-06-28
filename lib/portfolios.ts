@@ -110,9 +110,13 @@ export const portfolios: PortfolioProperty[] = [
 ];
 
 export async function getPortfolios() {
-  await new Promise((resolve) => setTimeout(resolve, 800));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return portfolios;
+}
+
+export async function getEmptyPortfolios() {
+  return [];
 }
 
 export async function getPortfolioById(id: number) {
