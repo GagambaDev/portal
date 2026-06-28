@@ -110,6 +110,8 @@ export const portfolios: PortfolioProperty[] = [
 ];
 
 export async function getPortfolios() {
+  await new Promise((resolve) => setTimeout(resolve, 800));
+
   return portfolios;
 }
 
