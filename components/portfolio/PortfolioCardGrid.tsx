@@ -24,7 +24,7 @@ export default function PortfolioCardGrid({
     // Spacing between the cards will remain consistent thanks to gap-5.
     <div className="grid grid-cols-1 min-[821px]:grid-cols-[repeat(auto-fill,minmax(280px,auto))] gap-5">
       {(properties).map((property) => (
-        <PortfolioCard key={property.building_id} property={property} />
+        <PortfolioCard key={property.id} property={property} />
       ))}
     </div>
   );
