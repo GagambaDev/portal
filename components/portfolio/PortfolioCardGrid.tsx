@@ -10,12 +10,20 @@ import {LoadingCard} from './PortfolioCard'
 export default function PortfolioCardGrid({
   properties,
 }: PortfolioCardGridProps) {
+  // Output message when there are no portfolios to display
+  if (properties.length === 0)
+  {
+    return <p className='text-foreground text-[26px]'> 
+      No properties are currently under service. 
+    </p>;
+  }
+
   return (
     // Cards will have a single-column grid layout by default until width hits 821 pixels.
     // When this happens, program will do the math to figure out how many cards can fit in a row. 
     // Spacing between the cards will remain consistent thanks to gap-5.
     <div className="grid grid-cols-1 min-[821px]:grid-cols-[repeat(auto-fill,minmax(280px,auto))] gap-5">
-      {(properties || []).map((property) => (
+      {(properties).map((property) => (
         <PortfolioCard key={property.building_id} property={property} />
       ))}
     </div>
