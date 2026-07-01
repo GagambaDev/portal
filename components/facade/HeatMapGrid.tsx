@@ -7,5 +7,5 @@ export default function HeatMapGrid() {
         <HeatMapHeader/>
       </div>
     </div>
-  )
+  );
 }
