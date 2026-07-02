@@ -1,9 +1,9 @@
-import HeatMapGrid from "@/components/facade/HeatMapGrid";
+import FacadePanel from "@/components/facade/FacadePanel";
 
 export default function heatmapPage(){
   return(
     <div>
-      <HeatMapGrid/>
+      <FacadePanel/>
     </div>
   );
 }

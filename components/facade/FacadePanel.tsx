@@ -1,10 +1,12 @@
-import HeatMapHeader from "@/components/facade/HeatMapHeader";
+import FacadeHeader from "@/components/facade/FacadeHeader";
+import FacadeMap from "@/components/facade/FacadeMap";
 
-export default function HeatMapGrid() {
+export default function FacadePanel() {
   return (
     <div className="grid place-items-center min-h-screen">
       <div className="bg-zinc-100 border border-zinc-200 rounded-[18px] p-4 h-150 w-[650px] mb-135">
-        <HeatMapHeader/>
+        <FacadeHeader/>
+        <FacadeMap/>
       </div>
     </div>
   );

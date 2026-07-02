@@ -9,7 +9,7 @@ const building = {
   panels: 10,
 };
 
-export default function HeatMapHeader() {
+export default function FacadeHeader() {
   return(
     <div>
       <div className="flex items-start justify-between">
