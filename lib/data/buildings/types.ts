@@ -34,6 +34,8 @@ export type Building = {
     needsClean: number;
     critical: number;
     paintIssues: number;
+    facadeLabel: string;
+    panelsPerFloor: number;
     floors: Floor[];
     recommendations: Recommendation[];
     waterEfficiency: WaterEfficiency;

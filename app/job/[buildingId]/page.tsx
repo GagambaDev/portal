@@ -9,6 +9,7 @@ import { getBuilding } from "@/lib/data/buildings/utils";
 import HealthScoreCard from "@/components/job-dashboard/left-column/HealthScoreCard";
 import StatGrid from "@/components/job-dashboard/left-column/StatGrid";
 import FloorNavigatorCard from "@/components/job-dashboard/left-column/FloorNavigatorCard";
+import FacadeMapCard from "@/components/job-dashboard/center-column/FacadeMapCard";
 
 type PageProps = {
     params: Promise<{ buildingId: string }>;
@@ -44,7 +45,13 @@ export default async function Page({ params }: PageProps) {
                         <FloorNavigatorCard floors={building.floors} />
                     </DashboardColumn>
 
-                    <DashboardColumn />
+                    <DashboardColumn>
+                        <FacadeMapCard
+                            facadeLabel={building.facadeLabel}
+                            floors={building.floors}
+                            panelsPerFloor={building.panelsPerFloor}
+                        />
+                    </DashboardColumn>
 
                     <DashboardColumn className="right-column">
                         <RecommendationsCard recommendations={building.recommendations} />

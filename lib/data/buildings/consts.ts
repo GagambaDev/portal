@@ -10,6 +10,8 @@ export const BUILDINGS: Record<string, Building> = {
         needsClean: 36,
         critical: 16,
         paintIssues: 5,
+        facadeLabel: "North Facade",
+        panelsPerFloor: 12,
         floors: Array.from({ length: 20 }, (_, i) => ({
             code: `F${20 - i}`,
             issues: 0,
