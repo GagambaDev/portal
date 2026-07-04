@@ -8,6 +8,7 @@ import FlightEventLogCard from "@/components/job-dashboard/right-column/FlightEv
 import { getBuilding } from "@/lib/data/buildings/utils";
 import HealthScoreCard from "@/components/job-dashboard/left-column/HealthScoreCard";
 import StatGrid from "@/components/job-dashboard/left-column/StatGrid";
+import FloorNavigatorCard from "@/components/job-dashboard/left-column/FloorNavigatorCard";
 
 type PageProps = {
     params: Promise<{ buildingId: string }>;
@@ -40,6 +41,7 @@ export default async function Page({ params }: PageProps) {
                             critical={building.critical}
                             paintIssues={building.paintIssues}
                         />
+                        <FloorNavigatorCard floors={building.floors} />
                     </DashboardColumn>
 
                     <DashboardColumn />

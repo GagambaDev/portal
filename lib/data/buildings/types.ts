@@ -19,6 +19,12 @@ export type FlightEvent = {
     time: string;
 };
 
+export type Floor = {
+    code: string;
+    issues: number;
+    percent: number;
+};
+
 export type Building = {
     id: string;
     name: string;
@@ -28,6 +34,7 @@ export type Building = {
     needsClean: number;
     critical: number;
     paintIssues: number;
+    floors: Floor[];
     recommendations: Recommendation[];
     waterEfficiency: WaterEfficiency;
     flightEvents: FlightEvent[];
