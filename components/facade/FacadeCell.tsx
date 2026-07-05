@@ -6,14 +6,16 @@ const STATUS_COLOR: Record<string, {fill: string, edge: string}> = {
   paint:    { fill: '#2F8FD6', edge: '#5FC2FF' },
 };
 
-const CELL_STATUS = 'paint';
+interface FacadeCellProps {
+  STATUS: string,
+};
 
-export default function FacadeCell(){
-  const {fill, edge} = STATUS_COLOR[CELL_STATUS];
+export default function FacadeCell({STATUS}: FacadeCellProps){
+  const {fill, edge} = STATUS_COLOR[STATUS];
 
   return(
     <div
-      className="rounded-[4px]"
+      className="rounded-[4px] cursor-pointer transition-all duration-150 hover:brightness-125 hover:scale-110"
       style={{
         height: '18px',
         width: '40px',
