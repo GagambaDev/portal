@@ -10,6 +10,7 @@ import HealthScoreCard from "@/components/job-dashboard/left-column/HealthScoreC
 import StatGrid from "@/components/job-dashboard/left-column/StatGrid";
 import FloorNavigatorCard from "@/components/job-dashboard/left-column/FloorNavigatorCard";
 import FacadeMapCard from "@/components/job-dashboard/center-column/FacadeMapCard";
+import SummaryCard from "@/components/job-dashboard/center-column/SummaryCard";
 
 type PageProps = {
     params: Promise<{ buildingId: string }>;
@@ -51,6 +52,10 @@ export default async function Page({ params }: PageProps) {
                             floors={building.floors}
                             panelsPerFloor={building.panelsPerFloor}
                         />
+                        <div className="grid flex-1 grid-cols-2 gap-4">
+                            <SummaryCard type="critical" value={building.critical} />
+                            <SummaryCard type="needsClean" value={building.needsClean} />
+                        </div>
                     </DashboardColumn>
 
                     <DashboardColumn className="right-column">
