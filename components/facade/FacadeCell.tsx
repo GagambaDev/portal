@@ -8,19 +8,25 @@ const STATUS_COLOR: Record<string, {fill: string, edge: string}> = {
 
 interface FacadeCellProps {
   STATUS: string,
+  floor?: number;
+  panel?: number;
+  dimmed?: boolean;
 };
 
-export default function FacadeCell({STATUS}: FacadeCellProps){
+export default function FacadeCell({STATUS, floor, panel, dimmed = false}: FacadeCellProps){
   const {fill, edge} = STATUS_COLOR[STATUS];
 
   return(
-    <div
-      className="rounded-[4px] cursor-pointer transition-all duration-150 hover:brightness-125 hover:scale-110"
+    <button
+      aria-label={`Floor ${floor} panel ${panel} ${STATUS}`}
+      className="rounded-[4px] cursor-pointer transition-all duration-150 hover:scale-[1.14] hover:shadow-[0_0_14px_rgba(0,170,255,.5)]"
       style={{
         height: '18px',
         width: '40px',
         background: fill,
-        border: `1px solid ${edge}`
+        border: `1px solid ${edge}`,
+        opacity: dimmed ? 0.16 : 1,
+        filter: dimmed ? 'saturate(.4)' : 'none',
       }}
     />
   )
