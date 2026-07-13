@@ -34,6 +34,7 @@ export function PanelToolTip( {floor, panel, status, flagged, children }: PanelT
                     border: '1px solid var(--skyline)',
                     borderRadius: 8,
                     padding: '8px 11px',
+                    boxShadow: 'var(--shadow-lg',
                     maxWidth: 230,
                     left: Math.min(pos.x + 14, window.innerWidth - 240),
                     top: pos.y + 16,
@@ -42,10 +43,10 @@ export function PanelToolTip( {floor, panel, status, flagged, children }: PanelT
                 }}
             >
                 <p style={{ fontWeight: 600, color: 'var(--muted)' }}>
-                    Floor {floor} . Panel {panel}
+                    Floor {floor} / Panel {panel}
                 </p>
                 <p style={{ color: 'var(--muted)' }}>
-                    {status} {flagged && '. Flagged'}
+                    {status} {flagged && '/ Flagged'}
                 </p>
             </div>
         )}
