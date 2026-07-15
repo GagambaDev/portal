@@ -1,9 +1,9 @@
-import FacadePanel from "@/components/facade/FacadePanel";
+import HealthMapCard from "@/components/healthmap/HealthMapCard";
 
 export default function heatmapPage(){
   return(
     <div>
-      <FacadePanel/>
+      <HealthMapCard/>
     </div>
   );
 }

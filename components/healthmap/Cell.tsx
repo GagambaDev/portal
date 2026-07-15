@@ -9,12 +9,12 @@ const STATUS_COLOR: Record<string, {fill: string, edge: string}> = {
   paint:    { fill: '#2F8FD6', edge: '#5FC2FF' },
 };
 
-interface FacadeCellProps {
+interface CellProps {
   status: string,
   activeFilters: Set<string>
 };
 
-export default function FacadeCell({ status, activeFilters }: FacadeCellProps) {
+export default function Cell({ status, activeFilters }: CellProps) {
   const [hovered, setHovered] = useState(false)
   const { fill, edge } = STATUS_COLOR[status]
   const dimmed = activeFilters.size > 0 && !activeFilters.has(status)

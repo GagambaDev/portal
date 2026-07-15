@@ -1,4 +1,4 @@
-import FacadeCell from "@/components/facade/FacadeCell";
+import Cell from "@/components/healthmap/Cell";
 import { Space_Grotesk } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
@@ -19,11 +19,11 @@ const issueMap: Record<string, string> = {
   '13-1': 'paint',
 }
 
-interface FacadeMapProps {
+interface MapProps {
   activeFilters: Set<string>
 }
 
-export default function FacadeMap({activeFilters}:FacadeMapProps) {
+export default function Map({activeFilters}:MapProps) {
   return (
     <div className="bg-black/30 rounded-lg p-3 flex flex-col-reverse gap-1 h-[460px] overflow-y-auto mt-5">
       {Array.from({ length: floors }).map((_, floorIndex) => (
@@ -35,7 +35,7 @@ export default function FacadeMap({activeFilters}:FacadeMapProps) {
             {Array.from({ length: panelsPerFloor }).map((_, panelIndex) => {
               const status = issueMap[`${floorIndex + 1}-${panelIndex + 1}`] ?? 'clean'
               return (
-                <FacadeCell key={panelIndex} status={status} activeFilters={activeFilters} />
+                <Cell key={panelIndex} status={status} activeFilters={activeFilters} />
               )
             })}
           </div>

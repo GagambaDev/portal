@@ -1,7 +1,7 @@
 'use client';
 import { SetStateAction, Dispatch } from "react";
 import { useState } from "react";
-import ResetButton from "@/components/facade/ResetButton";
+import ResetButton from "@/components/healthmap/ResetButton";
 
 const LEGEND_ITEMS = [
   { label: 'Clean', color: '#3FA66A', status: 'clean' },
@@ -11,12 +11,12 @@ const LEGEND_ITEMS = [
   { label: 'Paint', color:'#2F8FD6', status: 'paint' },
 ];
 
-interface FacadeLegendProps {
+interface LegendProps {
   activeFilters: Set<string>,
   setActiveFilters: Dispatch<SetStateAction<Set<string>>>
 }
 
-export default function FacadeLegend({activeFilters, setActiveFilters}: FacadeLegendProps) {
+export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
   const [filtersOn, setFiltersOn] = useState<boolean>(false);
 
   function toggleFilter(status: string) {
