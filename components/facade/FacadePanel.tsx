@@ -1,12 +1,16 @@
+'use client';
+import { useState } from "react";
 import FacadeHeader from "@/components/facade/FacadeHeader";
 import FacadeMap from "@/components/facade/FacadeMap";
 
 export default function FacadePanel() {
+  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
+
   return (
     <div className="grid place-items-center min-h-screen">
       <div className="bg-zinc-100 border border-zinc-200 rounded-[18px] p-4 h-150 w-[650px] mb-135">
-        <FacadeHeader/>
-        <FacadeMap/>
+        <FacadeHeader activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
+        <FacadeMap activeFilters={activeFilters}/>
       </div>
     </div>
   );

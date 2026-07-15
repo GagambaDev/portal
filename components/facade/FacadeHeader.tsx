@@ -1,5 +1,6 @@
 import FacadeLegend from "@/components/facade/FacadeLegend";
 import { Download } from "lucide-react";
+import { Dispatch, SetStateAction } from "react";
 
 const DownloadIcon = <Download size={16}/>;
 
@@ -9,7 +10,12 @@ const building = {
   panels: 10,
 };
 
-export default function FacadeHeader() {
+interface FacadeHeaderProps {
+  activeFilters: Set<string>,
+  setActiveFilters: Dispatch<SetStateAction<Set<string>>>
+}
+
+export default function FacadeHeader({activeFilters, setActiveFilters}: FacadeHeaderProps) {
   return(
     <div>
       <div className="flex items-start justify-between">
@@ -23,7 +29,7 @@ export default function FacadeHeader() {
           {DownloadIcon} Export PDF Report
         </button>
       </div>
-      <FacadeLegend/>
+      <FacadeLegend activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
     </div>
   );
 }
