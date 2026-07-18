@@ -1,8 +1,6 @@
 import Legend from "@/components/healthmap/Legend";
-import { Download } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
-
-const DownloadIcon = <Download size={16}/>;
+import ExportButton from "@/components/healthmap/ExportButton";
 
 const building = {
   facade: "West Facade",
@@ -25,9 +23,7 @@ export default function Header({activeFilters, setActiveFilters}: HeaderProps) {
             {building.facade} · {building.floors} floors · {building.panels} panels per floor · click any panel
           </p>
         </div>
-        <button className="flex items-center gap-2 text-xs font-bold border border-white/20 rounded-[8px] px-3 py-1.5 bg-black/20">
-          {DownloadIcon} Export PDF Report
-        </button>
+        <ExportButton/>
       </div>
       <Legend activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
     </div>
