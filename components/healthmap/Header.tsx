@@ -1,17 +1,12 @@
 import Legend from "@/components/healthmap/Legend";
-import { Dispatch, SetStateAction } from "react";
 import ExportButton from "@/components/healthmap/ExportButton";
+import { HeaderProps } from "@/lib/types";
 
 const building = {
   facade: "West Facade",
   floors: 18,
   panels: 10,
 };
-
-interface HeaderProps {
-  activeFilters: Set<string>,
-  setActiveFilters: Dispatch<SetStateAction<Set<string>>>
-}
 
 export default function Header({activeFilters, setActiveFilters}: HeaderProps) {
   return(

@@ -8,7 +8,7 @@ export default function HealthMapCard() {
 
   return (
     <div className="grid place-items-center min-h-screen">
-      <div className="bg-zinc-100 border border-zinc-200 rounded-[18px] p-4 h-150 w-[650px] mb-135">
+      <div className="bg-zinc-100 border border-zinc-200 rounded-[18px] p-4 h-150 w-[600px] mb-135">
         <Header activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
         <Map activeFilters={activeFilters}/>
       </div>

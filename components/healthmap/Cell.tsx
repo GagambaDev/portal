@@ -1,23 +1,12 @@
 'use client';
+import { CellData, CellProps } from "@/lib/types";
+import { STATUS_COLOR } from "@/lib/constants/heatmap";
 import { useState } from "react";
 
-const STATUS_COLOR: Record<string, {fill: string, edge: string}> = {
-  clean:    { fill: '#3FA66A', edge: '#74D89A' },
-  dirty:    { fill: '#D49A33', edge: '#F2C463' },
-  critical: { fill: '#D8534C', edge: '#FF867C' },
-  crack:    { fill: '#6E4FD0', edge: '#A98BF0' },
-  paint:    { fill: '#2F8FD6', edge: '#5FC2FF' },
-};
-
-interface CellProps {
-  status: string,
-  activeFilters: Set<string>
-};
-
-export default function Cell({ status, activeFilters }: CellProps) {
+export default function Cell({ data, activeFilters, onClick}: CellProps) {
   const [hovered, setHovered] = useState(false)
-  const { fill, edge } = STATUS_COLOR[status]
-  const dimmed = activeFilters.size > 0 && !activeFilters.has(status)
+  const { fill, edge } = STATUS_COLOR[data.status]
+  const dimmed = activeFilters.size > 0 && !activeFilters.has(data.status)
 
   return (
     <button
@@ -31,6 +20,7 @@ export default function Cell({ status, activeFilters }: CellProps) {
         transform: hovered && !dimmed ? 'scale(1.14)' : 'scale(1)',
         boxShadow: hovered && !dimmed ? '0 0 14px rgba(0,170,255,.5)' : 'none',
       }}
+      onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     />

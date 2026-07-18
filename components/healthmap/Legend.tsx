@@ -1,20 +1,8 @@
 'use client';
-import { SetStateAction, Dispatch } from "react";
 import { useState } from "react";
 import ResetButton from "@/components/healthmap/ResetButton";
-
-const LEGEND_ITEMS = [
-  { label: 'Clean', color: '#3FA66A', status: 'clean' },
-  { label: 'Dirty', color: '#D49A33', status: 'dirty' },
-  { label: 'Critical', color: '#D8534C', status: 'critical' },
-  { label: 'Crack', color: '#6E4FD0', status: 'crack' }, 
-  { label: 'Paint', color:'#2F8FD6', status: 'paint' },
-];
-
-interface LegendProps {
-  activeFilters: Set<string>,
-  setActiveFilters: Dispatch<SetStateAction<Set<string>>>
-}
+import { LegendProps } from "@/lib/types";
+import { LEGEND_ITEMS } from "@/lib/constants/heatmap";
 
 export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
   const [filtersOn, setFiltersOn] = useState<boolean>(false);
@@ -44,7 +32,7 @@ export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
         <div
           key={item.label}
           onClick={() => toggleFilter(item.status)}
-          className={`flex items-center gap-2 px-3 py-1 rounded-full 
+          className={`flex items-center gap-2 px-2 py-1 rounded-full 
                       border cursor-pointer hover:border-white/40 
                       hover:bg-zinc-700 
                       ${  activeFilters.has(item.status) 

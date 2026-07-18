@@ -1,0 +1,39 @@
+import { Dispatch, SetStateAction } from "react"
+
+export interface CellData {
+  floor: number,
+  panel: number,
+  status: string,
+  thermalDelta: string,
+  scanConfidence: number,
+  lastCleaned: number,
+  glazing: string,
+  aiAssessment: string
+}
+
+export interface CellModalProps{
+  data: CellData
+  onClose: () => void 
+}
+
+export interface LegendProps {
+  activeFilters: Set<string>,
+  setActiveFilters: Dispatch<SetStateAction<Set<string>>>
+}
+
+export interface ResetButtonProps{
+  filtersOn: boolean,
+  setFiltersOn: Dispatch<SetStateAction<boolean>>,
+  setActiveFilters: Dispatch<SetStateAction<Set<string>>>
+}
+
+export interface HeaderProps {
+  activeFilters: Set<string>,
+  setActiveFilters: Dispatch<SetStateAction<Set<string>>>
+}
+
+export interface CellProps {
+  data: CellData,
+  activeFilters: Set<string>,
+  onClick: () => void
+};
