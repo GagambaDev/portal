@@ -7,6 +7,7 @@ export default function Cell({ data, activeFilters, onClick}: CellProps) {
   const [hovered, setHovered] = useState(false)
   const { fill, edge } = STATUS_COLOR[data.status]
   const dimmed = activeFilters.size > 0 && !activeFilters.has(data.status)
+  const flagged = data.status !== 'clean'
 
   return (
     <button
@@ -18,7 +19,10 @@ export default function Cell({ data, activeFilters, onClick}: CellProps) {
         border: `1px solid ${edge}`,
         opacity: dimmed ? 0.16 : 1,
         transform: hovered && !dimmed ? 'scale(1.14)' : 'scale(1)',
-        boxShadow: hovered && !dimmed ? '0 0 14px rgba(0,170,255,.5)' : 'none',
+        boxShadow: [ 
+          flagged && !dimmed ? '0 0 0 2px #fff, 0 0 0 4px var(--sky)' : null,
+          hovered && !dimmed ? '0 0 14px rgba(0,170,255,.5)' : null,
+        ].filter(Boolean).join(', ') || 'none',
       }}
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
