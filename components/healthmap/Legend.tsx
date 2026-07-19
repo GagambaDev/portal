@@ -5,7 +5,7 @@ import { LegendProps } from "@/lib/types";
 import { LEGEND_ITEMS } from "@/lib/constants/heatmap";
 
 export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
-  const [filtersOn, setFiltersOn] = useState<boolean>(false);
+  const filtersOn = activeFilters.size > 0;
 
   function toggleFilter(status: string) {
     setActiveFilters((currentFilters) => {
@@ -15,11 +15,6 @@ export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
       } 
       else {
         next.add(status);
-        setFiltersOn(true);
-      }
-
-      if (next.size === 0) {
-        setFiltersOn(false);
       }
 
       return next
@@ -49,7 +44,7 @@ export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
         </div>
       ))}
 
-      <ResetButton filtersOn={filtersOn} setFiltersOn={setFiltersOn} setActiveFilters={setActiveFilters}/>
+      <ResetButton filtersOn={filtersOn} setActiveFilters={setActiveFilters}/>
     </div>
   );
 }

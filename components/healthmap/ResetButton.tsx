@@ -1,6 +1,6 @@
 import { ResetButtonProps } from "@/lib/types"
 
-export default function ResetButton({filtersOn, setFiltersOn, setActiveFilters}: ResetButtonProps){
+export default function ResetButton({filtersOn, setActiveFilters}: ResetButtonProps){
   return (
     <div 
       className={`flex gap-2 px-2 py-1 text-xs font-bold 
@@ -11,7 +11,7 @@ export default function ResetButton({filtersOn, setFiltersOn, setActiveFilters}:
                       : 'border-white/10 bg-zinc-400 opacity-40'
                     }
                 `}
-      onClick={() => {setActiveFilters(new Set()), setFiltersOn(false)}}
+      onClick={() => setActiveFilters(new Set())}
     >
       reset
     </div>

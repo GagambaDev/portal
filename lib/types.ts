@@ -23,7 +23,6 @@ export interface LegendProps {
 
 export interface ResetButtonProps{
   filtersOn: boolean,
-  setFiltersOn: Dispatch<SetStateAction<boolean>>,
   setActiveFilters: Dispatch<SetStateAction<Set<string>>>
 }
 
