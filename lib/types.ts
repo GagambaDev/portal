@@ -36,3 +36,13 @@ export interface CellProps {
   activeFilters: Set<string>,
   onClick: () => void
 };
+
+export interface StatusBlockProps{
+  color: string,
+  label: string
+}
+
+export interface CellHeaderProps {
+  floor: number,
+  panel: number
+}

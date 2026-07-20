@@ -2,7 +2,7 @@ import Cell from "@/components/healthmap/Cell";
 import { Space_Grotesk } from "next/font/google";
 import { CellData } from "@/lib/types";
 import { useState } from "react";
-import CellModal from "@/components/healthmap/CellModal";
+import CellModal from "@/components/healthmap/cellmodal-components/CellModal";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
 const floors = 20;
@@ -45,10 +45,10 @@ export default function Map({activeFilters}:MapProps) {
                   floor: floorIndex + 1,
                   panel: panelIndex + 1,
                   status,
-                  thermalDelta: '',
+                  thermalDelta: '+0.4',
                   scanConfidence: 0,
                   lastCleaned: 0,
-                  glazing: '',
+                  glazing: 'Insulated · double',
                   aiAssessment: '',
                 }
               return (

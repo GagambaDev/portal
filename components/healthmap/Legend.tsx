@@ -1,5 +1,4 @@
 'use client';
-import { useState } from "react";
 import ResetButton from "@/components/healthmap/ResetButton";
 import { LegendProps } from "@/lib/types";
 import { LEGEND_ITEMS } from "@/lib/constants/heatmap";

@@ -13,3 +13,11 @@ export const LEGEND_ITEMS = [
   { label: 'Crack', color: '#6E4FD0', status: 'crack' }, 
   { label: 'Paint', color:'#2F8FD6', status: 'paint' },
 ];
+
+export const STATUS_MODAL_COLORS: Record<string, {color: string, label: string}> = {
+  clean:    { color: '#3FA66A', label: 'Clean' },
+  dirty:    { color: '#D49A33', label: 'Dirty' },
+  critical: { color: '#D8534C', label: 'Critical' },
+  crack:    { color: '#6E4FD0', label: 'Crack' },
+  paint:    { color: '#2F8FD6', label: 'Paint' },
+}
