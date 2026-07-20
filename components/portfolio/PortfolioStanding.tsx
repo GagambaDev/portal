@@ -1,10 +1,3 @@
-/**
- * This calculates the percentage of dirty and critical panels to the total
- * number of panels to assign it a standing and percentage of good panels.
- * It returns a goodPanelPercentage that is not used at the moment, but 
- * could be used for issue A1 in the future if needed.
- */
-
 import {
   ACTION_REQUIRED,
   GOOD_STANDING,

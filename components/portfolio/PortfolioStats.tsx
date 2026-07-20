@@ -1,7 +1,3 @@
-/**
- * This displays the window stats of a property.
- */
-
 import type { PortfolioProperty } from "@/lib/types"
 import { getFacadePanelStats } from "@/lib/facade"
 

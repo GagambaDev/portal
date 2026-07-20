@@ -1,6 +1,3 @@
-/* This file renders the header of the portfolio */
-
-// Typescript object (blueprint) to hold statistics used in this page's subheader.
 type HeaderStats = {
   propertyCount: number;
   flightsThisMonth: number;

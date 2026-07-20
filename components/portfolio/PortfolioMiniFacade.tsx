@@ -1,8 +1,3 @@
-/**
- * This handles the mini facade component of the property card. It displays
- * the entire facade preview. 
- */
-
 import {
   getFacadePanelStatus,
   getFacadePreviewColumns,

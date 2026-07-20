@@ -1,8 +1,3 @@
-/**
- * This handles the rendering of multiple cards. It will take in an array of
- * card props and display them in a grid.
- */
-
 import PortfolioCard from './PortfolioCard'
 import type { PortfolioCardGridProps } from '@/lib/types'
 

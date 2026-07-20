@@ -1,8 +1,3 @@
-/**
- * This handles the rendering of a single card. It will take in some card
- * interface and display that information.
- */
-
 import {
   Card,
   CardContent,

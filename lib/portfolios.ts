@@ -1,10 +1,6 @@
 import type { PortfolioProperty } from "@/lib/types";
 import { createFacadeGrid } from "@/lib/facade";
 
-// We only care about the dirty or critical panels. Everything else can be
-// defaulted to "good". This works well for square/rectangular window set ups,
-// but could struggle with none square/rectangular set ups like a triangle or
-// something. 
 export const portfolios: PortfolioProperty[] = [
   {
     id: "mgm-grand-las-vegas",
@@ -27,7 +23,6 @@ export const portfolios: PortfolioProperty[] = [
     facadeGrid: createFacadeGrid({
       rows: 13,
       columns: 18,
-      // Store the coordinates of the dirty windows
       dirtyPanels: [
         [0, 4], [0, 11],
         [1, 2], [1, 13],
@@ -42,7 +37,6 @@ export const portfolios: PortfolioProperty[] = [
         [11, 10],
         [12, 2], [12, 15],
       ],
-      // Store the coordinates of the critical windows
       criticalPanels: [[4, 8], [6, 15]],
     }),
   },
