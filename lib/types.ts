@@ -46,3 +46,12 @@ export interface CellHeaderProps {
   floor: number,
   panel: number
 }
+
+export interface AIAssessmentProps{
+  assessment: string
+}
+
+export interface CellFooterButtonsProps{
+  onClose: () => void,
+  status: string
+}
