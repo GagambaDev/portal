@@ -18,6 +18,25 @@ interface CreateFacadeGridOptions {
   criticalPanels?: FacadeGrid["criticalPanels"];
 }
 
+function getCoordinateKey([row, column]: FacadePanelCoordinate) {
+  return `${row}:${column}`;
+}
+
+function getUniqueCoordinates(coordinates: FacadePanelCoordinate[]) {
+  const seenCoordinates = new Set<string>();
+
+  return coordinates.filter((coordinate) => {
+    const key = getCoordinateKey(coordinate);
+
+    if (seenCoordinates.has(key)) {
+      return false;
+    }
+
+    seenCoordinates.add(key);
+    return true;
+  });
+}
+
 export function createFacadeGrid({
   rows,
   columns,
@@ -28,11 +47,21 @@ export function createFacadeGrid({
     return row >= 0 && row < rows && column >= 0 && column < columns;
   };
 
+  const normalizedCriticalPanels = getUniqueCoordinates(
+    criticalPanels.filter(isInBounds)
+  );
+  const criticalCoordinates = new Set(
+    normalizedCriticalPanels.map(getCoordinateKey)
+  );
+  const normalizedDirtyPanels = getUniqueCoordinates(
+    dirtyPanels.filter(isInBounds)
+  ).filter((coordinate) => !criticalCoordinates.has(getCoordinateKey(coordinate)));
+
   return {
     rows,
     columns,
-    dirtyPanels: dirtyPanels.filter(isInBounds),
-    criticalPanels: criticalPanels.filter(isInBounds),
+    dirtyPanels: normalizedDirtyPanels,
+    criticalPanels: normalizedCriticalPanels,
   };
 }
 

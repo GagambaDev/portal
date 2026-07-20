@@ -52,7 +52,15 @@ export interface PortfolioProperty {
   building: string;
   facade: string;
   lastFlightDate: string;
+  flightsThisMonth: number;
   facadeGrid: FacadeGrid;
+}
+
+export interface PortfolioHeaderStats {
+  propertyCount: number;
+  flightsThisMonth: number;
+  panelsScanned: number;
+  openCriticals: number;
 }
 
 export interface PortfolioCardProps {

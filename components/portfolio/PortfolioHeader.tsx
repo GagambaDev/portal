@@ -1,19 +1,14 @@
-type HeaderStats = {
-  propertyCount: number;
-  flightsThisMonth: number;
-  panelsScanned: number;
-  openCriticals: number;
-};
+import type { PortfolioHeaderStats } from '@/lib/types';
 
 // Defined outside the component so it's not recreated on every rerender.
 // Converts data from an instance of HeaderStats object into an array.
-const statItems = (stats: HeaderStats) => [
+const statItems = (stats: PortfolioHeaderStats) => [
   { label: 'Flights this month', value: stats.flightsThisMonth, crit: false },
   { label: 'Panels scanned', value: stats.panelsScanned, crit: false },
   { label: 'Open criticals', value: stats.openCriticals, crit: true },
 ];
 
-export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
+export default function PortfolioHeader({ stats }: { stats: PortfolioHeaderStats }) {
   return (
     // All header elements will vertically stack in the order they appear.
     <header className="mb-10 flex flex-col min-[821px]:flex-row">
@@ -29,7 +24,7 @@ export default function PortfolioHeader({ stats }: { stats: HeaderStats }) {
       </h1>
 
       {/* Subheading */}
-      <p className="text-[14px] text--muted mt-1">
+      <p className="mt-1 text-[14px] text-muted-foreground">
         {stats.propertyCount} properties under autonomous service. Open any building to review its latest post-flight report.
       </p>
 

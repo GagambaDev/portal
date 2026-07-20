@@ -11,8 +11,6 @@ interface PortfolioStandingProps {
   property: PortfolioProperty
 }
 
-// This function will return 3 options: ACTION_REQUIRED, NEEDS_ATTENTION, or
-// GOOD_STANDING. It will use the portfolio thresholds to determine it.
 function getStanding(property: PortfolioProperty) {
   const { panelCount, criticalPanelCount, dirtyPanelCount } =
     getFacadePanelStats(property.facadeGrid)
@@ -28,7 +26,6 @@ function getStanding(property: PortfolioProperty) {
   const goodPanelRatio = (panelCount - badPanels) / panelCount;
   const goodPanelPercentage = Math.round(goodPanelRatio * 100);
 
-  // If the ratio is less than the acceptable limit return ACTION_REQUIRED
   if (goodPanelRatio < PORTFOLIO_STATUS_THRESHOLDS.actionRequiredGoodPanelRatio) {
     return {
       standing: ACTION_REQUIRED,
@@ -36,7 +33,6 @@ function getStanding(property: PortfolioProperty) {
     }
   }
 
-  // If the ratio is less than the needs attention limit return NEEDS_ATTENTION
   if (goodPanelRatio < PORTFOLIO_STATUS_THRESHOLDS.needsAttentionGoodPanelRatio) {
     return {
       standing: NEEDS_ATTENTION,
@@ -44,15 +40,12 @@ function getStanding(property: PortfolioProperty) {
     }
   }
 
-  // If we reach this point than the facade/property is in good standing
   return {
     standing: GOOD_STANDING,
     goodPanelPercentage,
   }
 }
 
-// Display the standing and panel percentage if wanted.
-// At the moment not used.
 export default function PortfolioStanding({ property }: PortfolioStandingProps) {
   const { standing, goodPanelPercentage } = getStanding(property)
 

@@ -1,5 +1,5 @@
-import type { PortfolioProperty } from "@/lib/types";
-import { createFacadeGrid } from "@/lib/facade";
+import type { PortfolioHeaderStats, PortfolioProperty } from "@/lib/types";
+import { createFacadeGrid, getFacadePanelStats } from "@/lib/facade";
 
 export const portfolios: PortfolioProperty[] = [
   {
@@ -8,6 +8,7 @@ export const portfolios: PortfolioProperty[] = [
     building: "North Tower",
     facade: "North Facade",
     lastFlightDate: "2026-04-12",
+    flightsThisMonth: 42,
     facadeGrid: createFacadeGrid({
       rows: 10,
       columns: 16,
@@ -20,6 +21,7 @@ export const portfolios: PortfolioProperty[] = [
     building: "West Residences",
     facade: "West Facade",
     lastFlightDate: "2026-04-09",
+    flightsThisMonth: 41,
     facadeGrid: createFacadeGrid({
       rows: 13,
       columns: 18,
@@ -46,6 +48,7 @@ export const portfolios: PortfolioProperty[] = [
     building: "Sky Suites",
     facade: "East Facade",
     lastFlightDate: "2026-04-14",
+    flightsThisMonth: 45,
     facadeGrid: createFacadeGrid({
       rows: 15,
       columns: 20,
@@ -85,6 +88,31 @@ export const portfolios: PortfolioProperty[] = [
 
 export async function getPortfolios() {
   return portfolios;
+}
+
+export function getPortfolioHeaderStats(
+  properties: PortfolioProperty[]
+): PortfolioHeaderStats {
+  return properties.reduce<PortfolioHeaderStats>(
+    (stats, property) => {
+      const { panelCount, criticalPanelCount } = getFacadePanelStats(
+        property.facadeGrid
+      );
+
+      stats.propertyCount += 1;
+      stats.flightsThisMonth += property.flightsThisMonth;
+      stats.panelsScanned += panelCount;
+      stats.openCriticals += criticalPanelCount;
+
+      return stats;
+    },
+    {
+      propertyCount: 0,
+      flightsThisMonth: 0,
+      panelsScanned: 0,
+      openCriticals: 0,
+    }
+  );
 }
 
 export async function getPortfolioById(id: string) {
