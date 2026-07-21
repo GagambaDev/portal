@@ -25,10 +25,15 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
     building,
     facade,
     lastFlightDate,
+  } : {
+    id: number
+    name: string
+    building: string
+    facade: string
+    lastFlightDate: Date | null
   } = property
-  const formattedLastFlightDate = flightDateFormatter.format(
-    new Date(lastFlightDate)
-  )
+  
+  const formattedLastFlightDate = flightDateFormatter.format( new Date(lastFlightDate) )
 
   return (
     <div className="w-full max-w-sm animate-fade-in">
@@ -37,17 +42,17 @@ export default function PortfolioCard({ property }: PortfolioCardProps) {
           <PortfolioMiniFacade facadeGrid={property.facadeGrid} />
           <CardHeader className="pt-4">
             <CardTitle className="font-building text-[17px] font-bold text-ink">
-              <h1> {name} </h1>
+              <h2> {name} </h2>
             </CardTitle>
 
             {/* Location */}
             <CardDescription>
-              <h2>{building} · {facade}</h2>
+              <h3> {building} · {facade} </h3>
             </CardDescription>
           </CardHeader>
           <CardContent className="py-4">
             <p className="text-sm text-muted-foreground">
-              Last flight - {formattedLastFlightDate}
+              Last Inspection - {formattedLastFlightDate}
             </p>
           </CardContent>
           <CardFooter className="grid grid-cols-3 border-border bg-transparent px-0 py-0">
