@@ -7,7 +7,7 @@ export default function Cell({ data, activeFilters, onClick}: CellProps) {
   const [hovered, setHovered] = useState(false)
   const { fill, edge } = STATUS_COLOR[data.status]
   const dimmed = activeFilters.size > 0 && !activeFilters.has(data.status)
-  const flagged = data.status !== 'clean'
+  const flagged = data.flagged;
 
   return (
     <button

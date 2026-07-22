@@ -7,7 +7,7 @@ import CellStats from "./CellStats";
 import AIAssessment from "./AIAssessment";
 import CellFooterButtons from "./CellFooterButtons";
 
-export default function CellModal({ data, onClose }: CellModalProps) {
+export default function CellModal({ data, onClose, onResolve, onFlagged }: CellModalProps) {
   const {color, label} = STATUS_MODAL_COLORS[data.status];
 
   return (
@@ -31,7 +31,13 @@ export default function CellModal({ data, onClose }: CellModalProps) {
           />
           <AIAssessment assessment={data.aiAssessment}/>
         </div>
-        <CellFooterButtons onClose={onClose} status={data.status}/>
+        <CellFooterButtons 
+          onClose={onClose} 
+          status={data.status} 
+          flagged={data.flagged}
+          onResolve={() => onResolve(data.floor, data.panel)}
+          onFlagged={() => onFlagged(data.floor, data.panel)}  
+        />
       </div>
     </div>
   );

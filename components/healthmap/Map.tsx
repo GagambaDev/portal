@@ -1,6 +1,7 @@
+'use client';
 import Cell from "@/components/healthmap/Cell";
 import { Space_Grotesk } from "next/font/google";
-import { CellData } from "@/lib/types";
+import { CellData, MapProps } from "@/lib/types";
 import { useState } from "react";
 import CellModal from "@/components/healthmap/cellmodal-components/CellModal";
 
@@ -8,26 +9,47 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
 const floors = 20;
 const panelsPerFloor = 10;
 
-const issueMap: Record<string, string> = {
-  '3-2': 'dirty',
-  '3-7': 'crack',
-  '6-5': 'critical',
-  '9-1': 'paint',
-  '9-8': 'dirty',
-  '12-4': 'critical',
-  '14-6': 'crack',
-  '15-3': 'paint',
-  '17-9': 'dirty',
-  '18-2': 'critical',
-  '13-1': 'paint',
-}
-
-interface MapProps {
-  activeFilters: Set<string>
-}
 
 export default function Map({activeFilters}:MapProps) {
-  const [selectedCell, setSelectedCell] = useState<CellData | null>(null)
+  const [selectedCell, setSelectedCell] = useState<CellData | null>(null);
+  const [flaggedCells, setFlaggedCells] = useState<Set<string>>(new Set());
+  const [issueMap, setIssueMap] = useState <Record<string, string>>({
+    '3-2': 'dirty',
+    '3-7': 'crack',
+    '6-5': 'critical',
+    '9-1': 'paint',
+    '9-8': 'dirty',
+    '12-4': 'critical',
+    '14-6': 'crack',
+    '15-3': 'paint',
+    '17-9': 'dirty',
+    '18-2': 'critical',
+    '13-1': 'paint',
+  });
+
+  function resolvecell(floor: number, panel: number){
+    setIssueMap((currentIssues) => {
+      const updatedIssues = {...currentIssues};
+      delete updatedIssues[`${floor}-${panel}`];
+      return updatedIssues;
+    });
+    setSelectedCell(null);
+  }
+
+  function toggleFlag(floor: number, panel: number) {
+    setFlaggedCells((currentFlaggedCells) => {
+      const next = new Set(currentFlaggedCells);
+      const key = `${floor}-${panel}`;
+      if (next.has(key)) {
+        next.delete(key);
+      }
+      else {
+        next.add(key);
+      }
+      return next;
+    });
+  }
+
 
   return (
     <>
@@ -50,12 +72,15 @@ export default function Map({activeFilters}:MapProps) {
                   lastCleaned: 0,
                   glazing: 'Insulated · double',
                   aiAssessment: '',
+                  flagged: flaggedCells.has(`${floorIndex+1}-${panelIndex+1}`)
                 }
               return (
-                <Cell key={panelIndex} data={cellData} activeFilters={activeFilters} onClick={() => {
-                  setSelectedCell(cellData)
-                  console.log('cell clicked', cellData)}
-                } />
+                <Cell 
+                  key={panelIndex} 
+                  data={cellData} 
+                  activeFilters={activeFilters} 
+                  onClick={() => setSelectedCell(cellData)} 
+                />
               )
             })}
           </div>
@@ -63,7 +88,16 @@ export default function Map({activeFilters}:MapProps) {
       ))}
     </div>
     {selectedCell && (
-      <CellModal data={selectedCell} onClose={() => setSelectedCell(null)}/>
+      <CellModal 
+        // Checks flagged status live from flaggedCells so the modal button updates immediately
+        data={{
+          ...selectedCell,
+          flagged: flaggedCells.has(`${selectedCell.floor}-${selectedCell.panel}`)
+        }}  
+        onClose={() => setSelectedCell(null)} 
+        onResolve={resolvecell}
+        onFlagged={toggleFlag}  
+      />
     )}
     </>
   );

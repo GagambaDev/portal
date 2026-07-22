@@ -8,12 +8,15 @@ export interface CellData {
   scanConfidence: number,
   lastCleaned: number,
   glazing: string,
-  aiAssessment: string
+  aiAssessment: string,
+  flagged: boolean
 }
 
 export interface CellModalProps{
-  data: CellData
-  onClose: () => void 
+  data: CellData,
+  onClose: () => void, 
+  onResolve: (floor: number, panel: number) => void,
+  onFlagged: (floor: number, panel: number) => void
 }
 
 export interface LegendProps {
@@ -34,7 +37,7 @@ export interface HeaderProps {
 export interface CellProps {
   data: CellData,
   activeFilters: Set<string>,
-  onClick: () => void
+  onClick: () => void,
 };
 
 export interface StatusBlockProps{
@@ -53,5 +56,12 @@ export interface AIAssessmentProps{
 
 export interface CellFooterButtonsProps{
   onClose: () => void,
-  status: string
+  status: string,
+  flagged: boolean,
+  onResolve: () => void,
+  onFlagged: () => void
+}
+
+export interface MapProps {
+  activeFilters: Set<string>
 }
