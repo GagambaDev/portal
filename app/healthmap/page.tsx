@@ -1,4 +1,4 @@
-import HealthMapCard from "@/components/healthmap/HealthMapCard";
+import HealthMapCard from "@/components/HealthMapCard";
 
 export default function heatmapPage(){
   return(
