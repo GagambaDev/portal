@@ -129,3 +129,22 @@
     @apply font-sans;
   }
 }
+
+.map-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.map-scroll::-webkit-scrollbar-track {
+  background: rgba(213,210,247,.05);
+  border-radius: 99px;
+}
+
+.map-scroll::-webkit-scrollbar-thumb {
+  background: rgba(213,210,247,.20);
+  border-radius: 99px;
+}
+
+.map-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(213,210,247,.40);
+}

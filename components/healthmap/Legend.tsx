@@ -2,6 +2,9 @@
 import ResetButton from "@/components/healthmap/ResetButton";
 import { LegendProps } from "@/lib/types";
 import { LEGEND_ITEMS } from "@/lib/constants/heatmap";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
 
 export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
   const filtersOn = activeFilters.size > 0;
@@ -26,18 +29,29 @@ export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
         <div
           key={item.label}
           onClick={() => toggleFilter(item.status)}
-          className={`flex items-center gap-2 px-2 py-1 rounded-full 
-                      border cursor-pointer hover:border-white/40 
-                      hover:bg-zinc-700 
-                      ${  activeFilters.has(item.status) 
-                          ? 'border-violet-400 bg-violet-500/20'
-                          : 'border-white/10 bg-zinc-400'
-                        }
-                    `}
+          className={`${spaceGrotesk.className} flex items-center gap-2 px-2 py-1 rounded-full border cursor-pointer transition-all duration-150`}
+          style={
+            activeFilters.has(item.status)
+              ? { background: 'rgba(91,63,212,.16)', border: '1px solid #7E63E8', boxShadow: '0 0 0 2px rgba(91,63,212,.16)' }
+              : { background: 'rgba(213,210,247,.03)', border: '1px solid rgba(213,210,247,.20)' }
+          }
+          onMouseEnter={(e) => {
+            if (!activeFilters.has(item.status))
+              e.currentTarget.style.borderColor = '#D5D2F7'
+          }}
+          onMouseLeave={(e) => {
+            if (!activeFilters.has(item.status))
+              e.currentTarget.style.borderColor = 'rgba(213,210,247,.20)'
+          }}
         >
           <span
-            className="w-3 h-3 rounded-[3px] flex-shrink-0"
-            style={{ background: item.color }}
+            className="flex-shrink-0"
+            style={{ 
+              width: '9px',
+              height: '9px',
+              borderRadius: '3px',
+              background: item.color 
+            }}
           />
           <span className="text-xs font-bold text-white/80">{item.label}</span>
         </div>

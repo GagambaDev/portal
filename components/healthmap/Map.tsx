@@ -6,9 +6,8 @@ import { useState } from "react";
 import CellModal from "@/components/healthmap/CellModal";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
-const floors = 20;
+const floors = 18;
 const panelsPerFloor = 10;
-
 
 export default function Map({activeFilters}:MapProps) {
   const [selectedCell, setSelectedCell] = useState<CellData | null>(null);
@@ -53,52 +52,87 @@ export default function Map({activeFilters}:MapProps) {
 
   return (
     <>
-    <div 
-      className="bg-black/30 rounded-lg p-3 pr-10 flex flex-col-reverse gap-1 h-[460px] overflow-y-auto mt-5">
-      {Array.from({ length: floors }).map((_, floorIndex) => (
-        <div key={floorIndex} className="flex gap-1 ml-5">
-          <span className={`${spaceGrotesk.className} text-[10px] text-zinc-500 w-4 text-right`}>
-            {floorIndex + 1}
-          </span>
-          <div style={{ display: 'grid', gridTemplateColumns: `repeat(${panelsPerFloor}, 1fr)`, gap: '4px'}}>
-            {Array.from({ length: panelsPerFloor }).map((_, panelIndex) => {
-              const status = issueMap[`${floorIndex + 1}-${panelIndex + 1}`] ?? 'clean'
-              const cellData: CellData = {
-                  floor: floorIndex + 1,
-                  panel: panelIndex + 1,
-                  status,
-                  thermalDelta: '+0.4',
-                  scanConfidence: 0,
-                  lastCleaned: 0,
-                  glazing: 'Insulated · double',
-                  aiAssessment: '',
-                  flagged: flaggedCells.has(`${floorIndex+1}-${panelIndex+1}`)
-                }
-              return (
-                <Cell 
-                  key={panelIndex} 
-                  data={cellData} 
-                  activeFilters={activeFilters} 
-                  onClick={() => setSelectedCell(cellData)} 
-                />
-              )
-            })}
-          </div>
+      <div
+        className="map-scroll rounded-[12px] p-3 pr-10 h-[460px] overflow-auto mt-5"
+        style={{
+          background: 'linear-gradient(180deg, rgba(9, 6, 26, .55), rgba(26, 15, 71, .42))',
+          border: '1px solid rgba(213, 210, 247, .10)',
+          minWidth: '560px',
+        }}
+      >
+        <div
+          className="flex flex-col-reverse gap-1"
+          style={{
+            width: 'max-content',
+            minWidth: '100%',
+            minHeight: '100%',
+          }}
+        >
+          {Array.from({ length: floors }).map((_, floorIndex) => (
+            <div
+              key={floorIndex}
+              className="flex gap-1 ml-2"
+            >
+              <span className={` ${spaceGrotesk.className} text-[10px] text-zinc-500 w-4 text-right shrink-0 `} >
+                {floorIndex + 1}
+              </span>
+
+              <div
+                className="grid gap-1 flex-1 ml-2"
+                style={{
+                  gridTemplateColumns: `repeat(${panelsPerFloor}, 1fr)`,
+                  minWidth: `${
+                    panelsPerFloor * 18 +
+                    (panelsPerFloor - 1) * 4
+                  }px`,
+                }}
+              >
+                {Array.from({ length: panelsPerFloor }).map(
+                  (_, panelIndex) => {
+                    const status = issueMap[`${floorIndex + 1}-${panelIndex + 1}`] ?? 'clean';
+                    const cellData: CellData = {
+                      floor: floorIndex + 1,
+                      panel: panelIndex + 1,
+                      status,
+                      thermalDelta: '+0.4',
+                      scanConfidence: 0,
+                      lastCleaned: 0,
+                      glazing: 'Insulated · double',
+                      aiAssessment: '',
+                      flagged: flaggedCells.has(`${floorIndex + 1}-${panelIndex + 1}`),
+                    };
+
+                    return (
+                      <Cell
+                        key={panelIndex}
+                        data={cellData}
+                        activeFilters={activeFilters}
+                        onClick={() =>
+                          setSelectedCell(cellData)
+                        }
+                      />
+                    );
+                  }
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    {selectedCell && (
-      <CellModal 
-        // Checks flagged status live from flaggedCells so the modal button updates immediately
-        data={{
-          ...selectedCell,
-          flagged: flaggedCells.has(`${selectedCell.floor}-${selectedCell.panel}`)
-        }}  
-        onClose={() => setSelectedCell(null)} 
-        onResolve={resolvecell}
-        onFlagged={toggleFlag}  
-      />
-    )}
+      </div>
+
+      {selectedCell && (
+        <CellModal
+          data={{
+            ...selectedCell,
+            flagged: flaggedCells.has(
+              `${selectedCell.floor}-${selectedCell.panel}`
+            ),
+          }}
+          onClose={() => setSelectedCell(null)}
+          onResolve={resolvecell}
+          onFlagged={toggleFlag}
+        />
+      )}
     </>
   );
 }

@@ -1,5 +1,5 @@
 'use client';
-import { CellData, CellProps } from "@/lib/types";
+import { CellProps } from "@/lib/types";
 import { STATUS_COLOR } from "@/lib/constants/heatmap";
 import { useState } from "react";
 
@@ -11,10 +11,11 @@ export default function Cell({ data, activeFilters, onClick}: CellProps) {
 
   return (
     <button
+      aria-label={`Floor ${data.floor} panel ${data.panel} ${data.status}`}
       className="rounded-[4px] cursor-pointer transition-all duration-150"
       style={{
         height: '18px',
-        width: '40px',
+        width: '100%',
         background: fill,
         border: `1px solid ${edge}`,
         opacity: dimmed ? 0.16 : 1,

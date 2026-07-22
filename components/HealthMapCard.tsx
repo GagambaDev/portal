@@ -8,7 +8,15 @@ export default function HealthMapCard() {
 
   return (
     <div className="grid place-items-center min-h-screen">
-      <div className="bg-zinc-100 border border-zinc-200 rounded-[18px] p-4 h-150 w-[600px] mb-135">
+      <div 
+        className="rounded-[18px] p-4 h-150 w-[600px] mb-135"
+        style={{
+          background: 'linear-gradient(180deg, rgba(42,27,96,.75), rgba(21,12,52,.82))',
+          border: '1px solid rgba(213, 210, 247, .10)',
+          backdropFilter: 'blur(8px)',
+          boxShadow: 'inset 0 1px 0 rgba(213,210,247,.05), 0 18px 40px rgba(5,3,15,.45)',
+        }}
+      >
         <Header activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
         <Map activeFilters={activeFilters}/>
       </div>
