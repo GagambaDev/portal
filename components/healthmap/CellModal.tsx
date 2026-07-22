@@ -3,9 +3,9 @@ import { CellModalProps } from "@/lib/types";
 import { STATUS_MODAL_COLORS } from "@/lib/constants/heatmap";
 import CellHeader from "@/components/healthmap/cellmodal-components/CellHeader";
 import StatusBlock from "@/components/healthmap/cellmodal-components/StatusBlock";
-import CellStats from "./CellStats";
-import AIAssessment from "./AIAssessment";
-import CellFooterButtons from "./CellFooterButtons";
+import CellStats from "./cellmodal-components/CellStats";
+import AIAssessment from "./cellmodal-components/AIAssessment";
+import CellFooterButtons from "./cellmodal-components/CellFooterButtons";
 
 export default function CellModal({ data, onClose, onResolve, onFlagged }: CellModalProps) {
   const {color, label} = STATUS_MODAL_COLORS[data.status];

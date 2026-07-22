@@ -3,7 +3,7 @@ import Cell from "@/components/healthmap/Cell";
 import { Space_Grotesk } from "next/font/google";
 import { CellData, MapProps } from "@/lib/types";
 import { useState } from "react";
-import CellModal from "@/components/healthmap/cellmodal-components/CellModal";
+import CellModal from "@/components/healthmap/CellModal";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
 const floors = 20;
