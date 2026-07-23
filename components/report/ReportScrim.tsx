@@ -1,5 +1,5 @@
 'use client';
-import ReportDocument from "@/components/ReportDocuemnt";
+import ReportDocument from "@/components/report/ReportDocument";
 import { Download } from "lucide-react";
 
 const DownloadIcon = <Download size={16}/>
