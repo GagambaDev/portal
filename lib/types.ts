@@ -17,3 +17,21 @@ export interface ExecutiveSummaryProps {
   summary: SummaryStats,
   panels: PanelStats
 }
+
+export interface CriticalItem {
+  floor: number,
+  panel: number,
+  status: 'critical' | 'crack'
+}
+
+export interface CriticalTableProps {
+  items: CriticalItem[]
+}
+
+export const REPORT_STATUS_COLORS: Record <string, string> = {
+  clean: '#2E7D32',
+  dirty: '#9A5E16',
+  critical: '#B23B36',
+  crack:  '#5B3FD4',
+  paint:  '#246FA8',
+}
