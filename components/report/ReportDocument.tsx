@@ -2,7 +2,8 @@ import ReportHeader from "@/components/report/ReportHeader";
 import BuildingTitle from "@/components/report/BuildingTitle";
 import ExecutiveSummary from "@/components/report/ExecutiveSummary";
 import CriticalTable from "@/components/report/CriticalTable";
-import { CriticalItem } from "@/lib/types";
+import FloorBreakdown from "@/components/report/FloorBreakdown";
+import { CriticalItem, FloorItem } from "@/lib/types";
 
 export default function ReportDocument(){
   const flightDate = 'Apr 12, 2026 · 06:42 AM';
@@ -33,7 +34,14 @@ const criticalItems: CriticalItem[] = [
   { floor: 6, panel: 5, status: 'critical' },
   { floor: 14, panel: 6, status: 'crack' },
   { floor: 3, panel: 7, status: 'crack' },
+]
 
+const FloorBreakdownItems: FloorItem[] = [
+  { floor: 18, panels: 3 },
+  { floor: 12, panels: 5},
+  { floor: 6, panels: 8 },
+  { floor: 14, panels: 2 },
+  { floor: 3, panels: 10 },
 ]
 
   return (
@@ -51,6 +59,7 @@ const criticalItems: CriticalItem[] = [
       <BuildingTitle buildingName={buildingName} location={location} facade={facade}/>
       <ExecutiveSummary score={score} summary={summary} panels={panels}/>
       <CriticalTable items={criticalItems}/>
+      <FloorBreakdown items={FloorBreakdownItems}/>
 
     </div>
   )

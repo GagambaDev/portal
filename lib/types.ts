@@ -28,6 +28,15 @@ export interface CriticalTableProps {
   items: CriticalItem[]
 }
 
+export interface FloorItem {
+  floor: number,
+  panels: number
+}
+
+export interface FloorBreakdownProps {
+  items: FloorItem[]
+}
+
 export const REPORT_STATUS_COLORS: Record <string, string> = {
   clean: '#2E7D32',
   dirty: '#9A5E16',
