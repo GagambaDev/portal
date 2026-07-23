@@ -37,6 +37,16 @@ export interface FloorBreakdownProps {
   items: FloorItem[]
 }
 
+export interface SustainabilityMetricsProps {
+  waterUsed: string
+  capacity: string
+}
+
+export interface OperatorNoteProps {
+  note: string
+}
+
+
 export const REPORT_STATUS_COLORS: Record <string, string> = {
   clean: '#2E7D32',
   dirty: '#9A5E16',

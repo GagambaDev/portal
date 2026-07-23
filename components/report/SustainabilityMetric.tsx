@@ -1,12 +1,8 @@
 import ReportSectionHeader from "@/components/report/ReportSectionHeader";
+import { SustainabilityMetricsProps } from "@/lib/types";
 import { Space_Grotesk } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({subsets:['latin'], weight:['700']});
-
-interface SustainabilityMetricsProps {
-  waterUsed: string
-  capacity: string
-}
 
 export default function SustainabilityMetrics({waterUsed, capacity}: SustainabilityMetricsProps) {
   return (
