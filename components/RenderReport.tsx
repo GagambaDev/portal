@@ -4,23 +4,11 @@ import { Download } from "lucide-react";
 
 const DownloadIcon = <Download size={16}/>
 
-export default function ReportScrim({ onClose }: { onClose: () => void }) {
+export default function ReportReport({ onClose }: { onClose: () => void }) {
   return (
-    <div
-      className="fixed inset-0 z-50 overflow-auto"
-      style={{
-        background: 'rgba(5,3,15,.74)',
-        padding: '30px 16px',
-      }}
-    >
-      <div
-        className="flex justify-between items-center mb-4"
-        style={{ maxWidth: '820px', margin: '0 auto 14px' }}
-      >
-        <span
-          className="text-sm"
-          style={{ color: '#D5D2F7', fontFamily: 'Space Grotesk' }}
-        >
+    <div className="fixed inset-0 z-50 overflow-auto" style={{ background: 'rgba(5,3,15,.74)', padding: '30px 16px', }}>
+      <div className="flex justify-between items-center mb-4" style={{ maxWidth: '820px', margin: '0 auto 14px' }}>
+        <span className="text-sm" style={{ color: '#D5D2F7', fontFamily: 'Space Grotesk' }}>
           Preview · generated {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
         </span>
         <div className="flex gap-2">
@@ -35,7 +23,6 @@ export default function ReportScrim({ onClose }: { onClose: () => void }) {
           </button>
         </div>
       </div>
-
       <ReportDocument />
     </div>
   )
