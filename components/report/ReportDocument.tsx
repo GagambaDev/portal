@@ -3,6 +3,7 @@ import BuildingTitle from "@/components/report/BuildingTitle";
 import ExecutiveSummary from "@/components/report/ExecutiveSummary";
 import CriticalTable from "@/components/report/CriticalTable";
 import FloorBreakdown from "@/components/report/FloorBreakdown";
+import SustainabilityMetrics from "@/components/report/SustainabilityMetric";
 import { CriticalItem, FloorItem } from "@/lib/types";
 
 export default function ReportDocument(){
@@ -44,6 +45,9 @@ const FloorBreakdownItems: FloorItem[] = [
   { floor: 3, panels: 10 },
 ]
 
+const waterUsed = "11.2L";
+const capacity = "30x";
+
   return (
     <div 
       className="rounded-[6px] w-full"
@@ -60,6 +64,7 @@ const FloorBreakdownItems: FloorItem[] = [
       <ExecutiveSummary score={score} summary={summary} panels={panels}/>
       <CriticalTable items={criticalItems}/>
       <FloorBreakdown items={FloorBreakdownItems}/>
+      <SustainabilityMetrics waterUsed={waterUsed} capacity={capacity}/>
 
     </div>
   )
