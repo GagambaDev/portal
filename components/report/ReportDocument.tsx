@@ -5,6 +5,7 @@ import CriticalTable from "@/components/report/CriticalTable";
 import FloorBreakdown from "@/components/report/FloorBreakdown";
 import SustainabilityMetrics from "@/components/report/SustainabilityMetric";
 import OperatorNote from "@/components/report/OperatorNote";
+import DocumentFooter from "@/components/report/DocumentFooter";
 import { CriticalItem, FloorItem } from "@/lib/types";
 
 export default function ReportDocument(){
@@ -69,6 +70,7 @@ const note = "Hello World";
       <CriticalTable items={criticalItems}/>
       <FloorBreakdown items={FloorBreakdownItems}/>
       <SustainabilityMetrics waterUsed={waterUsed} capacity={capacity}/>
+      <DocumentFooter/>
 
     </div>
   )
