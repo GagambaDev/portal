@@ -6,9 +6,9 @@ import FloorBreakdown from "@/components/report/FloorBreakdown";
 import SustainabilityMetrics from "@/components/report/SustainabilityMetric";
 import OperatorNote from "@/components/report/OperatorNote";
 import DocumentFooter from "@/components/report/DocumentFooter";
-import { CriticalItem, FloorItem } from "@/lib/types";
+import { ReportDocumentProps, CriticalItem, FloorItem } from "@/lib/types";
 
-export default function ReportDocument(){
+export default function ReportDocument({enableExecutiveSummary, enableCriticalTable, enableFloorBreakdown, enableSustainabilityMetrics}: ReportDocumentProps){
   const flightDate = 'Apr 12, 2026 · 06:42 AM';
   const recipient = "Building Manager";
 
@@ -65,11 +65,11 @@ const note = "Hello World";
     >
       <ReportHeader flightDate={flightDate} recipient={recipient}/>
       <BuildingTitle buildingName={buildingName} location={location} facade={facade}/>
-      <ExecutiveSummary score={score} summary={summary} panels={panels}/>
+      {enableExecutiveSummary && (<ExecutiveSummary score={score} summary={summary} panels={panels}/>)}
       {note && (<OperatorNote note={note}/>)}
-      <CriticalTable items={criticalItems}/>
-      <FloorBreakdown items={FloorBreakdownItems}/>
-      <SustainabilityMetrics waterUsed={waterUsed} capacity={capacity}/>
+      {enableCriticalTable && (<CriticalTable items={criticalItems}/>)}
+      {enableFloorBreakdown && (<FloorBreakdown items={FloorBreakdownItems}/>)}
+      {enableSustainabilityMetrics && (<SustainabilityMetrics waterUsed={waterUsed} capacity={capacity}/>)}
       <DocumentFooter/>
 
     </div>

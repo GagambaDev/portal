@@ -1,3 +1,18 @@
+export interface RenderReportProps {
+  enableExecutiveSummary: boolean,
+  enableCriticalTable: boolean,
+  enableFloorBreakdown: boolean,
+  enableSustainabilityMetrics: boolean,
+  onClose: () => void
+}
+
+export interface ReportDocumentProps {
+  enableExecutiveSummary: boolean,
+  enableCriticalTable: boolean,
+  enableFloorBreakdown: boolean,
+  enableSustainabilityMetrics: boolean
+}
+
 export interface SummaryStats {
   condition: string,
   scanned: number,

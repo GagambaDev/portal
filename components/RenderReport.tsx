@@ -1,10 +1,11 @@
 'use client';
 import ReportDocument from "@/components/report/ReportDocument";
+import { RenderReportProps } from "@/lib/types";
 import { Download } from "lucide-react";
 
 const DownloadIcon = <Download size={16}/>
 
-export default function ReportReport({ onClose }: { onClose: () => void }) {
+export default function ReportReport({ enableExecutiveSummary, enableCriticalTable, enableFloorBreakdown, enableSustainabilityMetrics, onClose }: RenderReportProps) {
   return (
     <div className="fixed inset-0 z-50 overflow-auto" style={{ background: 'rgba(5,3,15,.74)', padding: '30px 16px', }}>
       <div className="flex justify-between items-center mb-4" style={{ maxWidth: '820px', margin: '0 auto 14px' }}>
@@ -23,7 +24,7 @@ export default function ReportReport({ onClose }: { onClose: () => void }) {
           </button>
         </div>
       </div>
-      <ReportDocument />
+      <ReportDocument enableExecutiveSummary={enableExecutiveSummary} enableCriticalTable={enableCriticalTable} enableFloorBreakdown={enableFloorBreakdown} enableSustainabilityMetrics={enableSustainabilityMetrics}/>
     </div>
   )
 }
