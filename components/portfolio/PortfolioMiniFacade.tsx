@@ -29,7 +29,9 @@ function getPanelClass(status: FacadePanelStatus) {
   return PANEL_COLOR_GOOD;
 }
 
-export default function PortfolioMiniFacade({facadeGrid}: PortfolioMiniFacadeProps) {
+export default function PortfolioMiniFacade({
+  facadeGrid
+}: PortfolioMiniFacadeProps) {
   const rows = getFacadePreviewRows(facadeGrid);
   const columns = getFacadePreviewColumns(facadeGrid);
 
@@ -46,7 +48,7 @@ export default function PortfolioMiniFacade({facadeGrid}: PortfolioMiniFacadePro
               const status = getFacadePanelStatus(facadeGrid, row, column);
 
               return (
-                <span
+                <div
                   key={`${row} ${column}`}
                   className={`h-3 rounded-[2px] opacity-[0.92] ${getPanelClass(status)}`}
                 />

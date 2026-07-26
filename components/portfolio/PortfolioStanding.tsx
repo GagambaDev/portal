@@ -46,7 +46,9 @@ function getStanding(property: PortfolioProperty) {
   }
 }
 
-export default function PortfolioStanding({ property }: PortfolioStandingProps) {
+export default function PortfolioStanding({ 
+  property 
+}: PortfolioStandingProps) {
   const { standing, goodPanelPercentage } = getStanding(property)
 
   return (

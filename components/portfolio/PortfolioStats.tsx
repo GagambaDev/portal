@@ -5,7 +5,9 @@ interface PortfolioStatsProps {
   property: PortfolioProperty
 }
 
-export default function PortfolioStats({ property }: PortfolioStatsProps) {
+export default function PortfolioStats({ 
+  property 
+}: PortfolioStatsProps) {
   const { panelCount, dirtyPanelCount, criticalPanelCount } = getFacadePanelStats(property.facadeGrid)
 
   return (
