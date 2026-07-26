@@ -6,8 +6,8 @@ import { useState } from "react";
 import CellModal from "@/components/healthmap/CellModal";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
-const floors = 18;
-const panelsPerFloor = 10;
+const floors = 19;
+const panelsPerFloor = 20;
 
 export default function Map({activeFilters}:MapProps) {
   const [selectedCell, setSelectedCell] = useState<CellData | null>(null);
@@ -69,10 +69,7 @@ export default function Map({activeFilters}:MapProps) {
           }}
         >
           {Array.from({ length: floors }).map((_, floorIndex) => (
-            <div
-              key={floorIndex}
-              className="flex gap-1 ml-2"
-            >
+            <div key={floorIndex} className="flex gap-1 ml-2">
               <span className={` ${spaceGrotesk.className} text-[10px] text-zinc-500 w-4 text-right shrink-0 `} >
                 {floorIndex + 1}
               </span>
@@ -81,10 +78,7 @@ export default function Map({activeFilters}:MapProps) {
                 className="grid gap-1 flex-1 ml-2"
                 style={{
                   gridTemplateColumns: `repeat(${panelsPerFloor}, 1fr)`,
-                  minWidth: `${
-                    panelsPerFloor * 18 +
-                    (panelsPerFloor - 1) * 4
-                  }px`,
+                  minWidth: `${ panelsPerFloor * 20 + (panelsPerFloor - 1) * 4 }px`,
                 }}
               >
                 {Array.from({ length: panelsPerFloor }).map(
@@ -101,16 +95,8 @@ export default function Map({activeFilters}:MapProps) {
                       aiAssessment: '',
                       flagged: flaggedCells.has(`${floorIndex + 1}-${panelIndex + 1}`),
                     };
-
                     return (
-                      <Cell
-                        key={panelIndex}
-                        data={cellData}
-                        activeFilters={activeFilters}
-                        onClick={() =>
-                          setSelectedCell(cellData)
-                        }
-                      />
+                      <Cell key={panelIndex} data={cellData} activeFilters={activeFilters} onClick={() => setSelectedCell(cellData)}/>
                     );
                   }
                 )}
@@ -119,15 +105,9 @@ export default function Map({activeFilters}:MapProps) {
           ))}
         </div>
       </div>
-
       {selectedCell && (
         <CellModal
-          data={{
-            ...selectedCell,
-            flagged: flaggedCells.has(
-              `${selectedCell.floor}-${selectedCell.panel}`
-            ),
-          }}
+          data={{ ...selectedCell, flagged: flaggedCells.has(`${selectedCell.floor}-${selectedCell.panel}`)}}
           onClose={() => setSelectedCell(null)}
           onResolve={resolvecell}
           onFlagged={toggleFlag}

@@ -16,6 +16,7 @@ export default function Cell({ data, activeFilters, onClick}: CellProps) {
       style={{
         height: '18px',
         width: '100%',
+        minWidth: '20px',
         background: fill,
         border: `1px solid ${edge}`,
         opacity: dimmed ? 0.16 : 1,
