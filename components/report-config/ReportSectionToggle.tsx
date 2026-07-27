@@ -15,7 +15,7 @@ export function ReportSectionToggle({
 }: ReportSectionToggleProps) {
   return (
     <label
-      className={`mt-2 flex gap-3 rounded-lg border p-3 ${
+      className={`mt-2 flex gap-3 rounded-lg border p-3 hover:cursor-pointer ${
         checked ? "border-[#724ce8] bg-[#22194a]" : "border-[#3d3163]"
       }`}
     >

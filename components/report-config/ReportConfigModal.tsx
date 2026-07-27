@@ -60,7 +60,7 @@ export function ReportConfigModal({ open, onOpenChange }: ReportConfigModalProps
               <span className="text-xs font-bold uppercase tracking-widest text-[#aaa0c8]">
                 Send to
               </span>
-              <select className="rounded-lg border border-[#3d3163] bg-[#0d0624] p-2">
+              <select className="rounded-lg border border-[#3d3163] bg-[#0d0624] p-2 hover:cursor-pointer">
                 {recipients.map((recipient) => (
                   <option key={recipient}>{recipient}</option>
                 ))}
@@ -81,11 +81,11 @@ export function ReportConfigModal({ open, onOpenChange }: ReportConfigModalProps
 
         <footer className="flex justify-end gap-2 border-t border-[#2b214d] p-4">
           <DialogClose asChild>
-            <button className="rounded-lg border border-[#4a3d72] px-4 py-2 font-bold hover:bg-[#241947]">
+            <button className="rounded-lg border border-[#4a3d72] px-4 py-2 font-bold hover:cursor-pointer hover:bg-[#241947]">
               Cancel
             </button>
           </DialogClose>
-          <button className="rounded-lg bg-[#724ce8] px-4 py-2 font-bold">Generate report</button>
+          <button className="rounded-lg bg-[#724ce8] px-4 py-2 font-bold hover:cursor-pointer">Generate report</button>
         </footer>
       </DialogContent>
     </Dialog>
