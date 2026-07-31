@@ -1,12 +1,12 @@
 'use client';
 import ResetButton from "@/components/healthmap/ResetButton";
-import { LegendProps } from "@/lib/types";
+import { MapLegendProps } from "@/lib/types";
 import { LEGEND_ITEMS } from "@/lib/constants/heatmap";
 import { Space_Grotesk } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
 
-export default function Legend({activeFilters, setActiveFilters}: LegendProps) {
+export default function MapLegend({activeFilters, setActiveFilters}: MapLegendProps) {
   const filtersOn = activeFilters.size > 0;
 
   function toggleFilter(status: string) {

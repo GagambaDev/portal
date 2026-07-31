@@ -6,10 +6,8 @@ import { useState } from "react";
 import CellModal from "@/components/healthmap/CellModal";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['600'] });
-const floors = 19;
-const panelsPerFloor = 20;
 
-export default function Map({activeFilters}:MapProps) {
+export default function Map({floors, panels, activeFilters}:MapProps) {
   const [selectedCell, setSelectedCell] = useState<CellData | null>(null);
   const [flaggedCells, setFlaggedCells] = useState<Set<string>>(new Set());
   const [issueMap, setIssueMap] = useState <Record<string, string>>({
@@ -77,11 +75,11 @@ export default function Map({activeFilters}:MapProps) {
               <div
                 className="grid gap-1 flex-1 ml-2"
                 style={{
-                  gridTemplateColumns: `repeat(${panelsPerFloor}, 1fr)`,
-                  minWidth: `${ panelsPerFloor * 20 + (panelsPerFloor - 1) * 4 }px`,
+                  gridTemplateColumns: `repeat(${panels}, 1fr)`,
+                  minWidth: `${ panels * 20 + (panels - 1) * 4 }px`,
                 }}
               >
-                {Array.from({ length: panelsPerFloor }).map(
+                {Array.from({ length: panels }).map(
                   (_, panelIndex) => {
                     const status = issueMap[`${floorIndex + 1}-${panelIndex + 1}`] ?? 'clean';
                     const cellData: CellData = {

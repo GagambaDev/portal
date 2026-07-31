@@ -19,7 +19,7 @@ export interface CellModalProps{
   onFlagged: (floor: number, panel: number) => void
 }
 
-export interface LegendProps {
+export interface MapLegendProps {
   activeFilters: Set<string>,
   setActiveFilters: Dispatch<SetStateAction<Set<string>>>
 }
@@ -29,7 +29,10 @@ export interface ResetButtonProps{
   setActiveFilters: Dispatch<SetStateAction<Set<string>>>
 }
 
-export interface HeaderProps {
+export interface MapHeaderProps {
+  facade: string,
+  floors: number,
+  panels: number,
   activeFilters: Set<string>,
   setActiveFilters: Dispatch<SetStateAction<Set<string>>>
 }
@@ -63,5 +66,7 @@ export interface CellFooterButtonsProps{
 }
 
 export interface MapProps {
+  floors: number,
+  panels: number,
   activeFilters: Set<string>
 }

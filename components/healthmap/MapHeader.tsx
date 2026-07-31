@@ -1,17 +1,11 @@
-import Legend from "@/components/healthmap/Legend";
+import MapLegend from "@/components/healthmap/MapLegend";
 import ExportButton from "@/components/healthmap/ExportButton";
-import { HeaderProps } from "@/lib/types";
+import { MapHeaderProps } from "@/lib/types";
 import { Syne } from 'next/font/google';
 
 const syne = Syne({ subsets: ['latin'], weight: ['800']});
 
-const building = {
-  facade: "West Facade",
-  floors: 18,
-  panels: 10,
-};
-
-export default function Header({activeFilters, setActiveFilters}: HeaderProps) {
+export default function MapHeader({facade, floors, panels, activeFilters, setActiveFilters}: MapHeaderProps) {
   return(
     <div>
       <div className="flex items-start justify-between">
@@ -20,12 +14,12 @@ export default function Header({activeFilters, setActiveFilters}: HeaderProps) {
             Facade Health Map
           </h2>
           <p className="text-sm mt-1" style={{ color: '#9B95C4' }}>
-            {building.facade} · {building.floors} floors · {building.panels} panels per floor · click any panel
+            {facade} · {floors} floors · {panels} panels per floor · click any panel
           </p>
         </div>
         <ExportButton/>
       </div>
-      <Legend activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
+      <MapLegend activeFilters={activeFilters} setActiveFilters={setActiveFilters}/>
     </div>
   );
 }
