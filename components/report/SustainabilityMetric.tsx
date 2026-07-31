@@ -22,7 +22,7 @@ export default function SustainabilityMetrics({waterUsed, capacity}: Sustainabil
           <span className={`${spaceGrotesk.className} text-[10px] tracking-[0.5px] uppercase`} style={{ color: '#8C88A8' }}>Crew at Height</span>
         </div>
         <div className="text-center p-3 rounded-[10px]" style={{ border: '1px solid #E7E3F5'}}>
-          <b className={`${spaceGrotesk.className} text-[22px] block`} style={{ color: '#2E7D32' }}>100</b>
+          <b className={`${spaceGrotesk.className} text-[22px] block`} style={{ color: '#2E7D32' }}>100%</b>
           <span className={`${spaceGrotesk.className} text-[10px] tracking-[0.5px] uppercase`} style={{ color: '#8C88A8' }}>Coverage</span>
         </div>
       </div>

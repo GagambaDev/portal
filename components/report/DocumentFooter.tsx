@@ -11,8 +11,8 @@ export default function DocumentFooter() {
         color: '#8C88A8',
       }}
     >
-      <span> Gagamba · Autonomous facade care</span>
-      <span>gagamba.co · Confidential</span>
+      <span> Gagamba</span>
+      <span>gagamba.co</span>
     </div>
   )
 }
