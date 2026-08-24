@@ -20,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link";
+import { PanelToolTip } from "@/components/ui/panel-tooltip";
 
 export default function ComponentsDemo() {
   return (
@@ -85,6 +86,22 @@ export default function ComponentsDemo() {
             </DropdownMenuContent>
           </DropdownMenu>
         </section>
+
+        <section className="flex flex-col gap-3">
+          <h2 className="text-lg font-semibold border-b pb-2">Panel Cells</h2>
+          <div className="grid grid-cols-3 gap-2 w-fit">
+            <PanelToolTip floor={1} panel={1} status="Clean">
+              <button className="w-10 h-14 rounded border-2" style={{ backgroundColor: '#3FA66A', borderColor: '#74D89A' }} aria-label="Floor 20 Panel 1 Clean" />
+            </PanelToolTip>
+            <PanelToolTip floor={1} panel={2} status='Dirty' flagged>
+              <button className="w-10 h-14 rounded border-2" style={{ backgroundColor: '#D49A33', borderColor: '#F2C463' }} aria-label="Floor 20 Panel 2 Dirty" />
+            </PanelToolTip>
+            <PanelToolTip floor={1} panel={3} status="Cracked" flagged>
+              <button className="w-10 h-14 rounded border-2" style={{ backgroundColor: '#D8534C', borderColor: '#FF867C' }} aria-label="Floor 20 Panel 3 Critical" />
+            </PanelToolTip>
+          </div>
+        </section>
+
 
         <Link href={"https://ui.shadcn.com/docs/components"} className={"underline"} target={"_blank"}>Learn more here: https://ui.shadcn.com/docs/components</Link>
       </div>
